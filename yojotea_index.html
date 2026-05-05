@@ -1,0 +1,1988 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>薬膳茶ブレンドガイド｜お悩みから・体質から</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600;700&family=Noto+Sans+JP:wght@300;400;500&family=Zen+Antique&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink:#1a1209; --paper:#f5efe3; --paper2:#ede4d0; --paper3:#faf6ee;
+  --gold:#b8922a; --gold-l:rgba(184,146,42,0.12);
+  --red:#8b2e1a; --green:#3a5c3a; --muted:#7a6a54;
+  --border:rgba(184,146,42,0.22); --shadow:rgba(26,18,9,0.10);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--paper);color:var(--ink);font-family:'Noto Sans JP',sans-serif;font-weight:300;min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 70% 50% at 15% 15%,rgba(184,146,42,.05) 0%,transparent 60%),radial-gradient(ellipse 60% 70% at 85% 85%,rgba(139,46,26,.04) 0%,transparent 60%);pointer-events:none;z-index:0;}
+
+/* ── HEADER ── */
+header{position:relative;z-index:1;text-align:center;padding:52px 20px 32px;border-bottom:1px solid var(--border);}
+.header-kana{font-family:'Zen Antique',serif;font-size:11px;letter-spacing:.5em;color:var(--gold);display:block;margin-bottom:12px;animation:fadeUp .7s ease forwards .2s;opacity:0;}
+h1{font-family:'Noto Serif JP',serif;font-weight:700;font-size:clamp(26px,5vw,44px);letter-spacing:.12em;line-height:1.25;animation:fadeUp .7s ease forwards .4s;opacity:0;}
+h1 em{color:var(--gold);font-style:normal;}
+.header-sub{margin-top:10px;font-size:13px;letter-spacing:.18em;color:var(--muted);animation:fadeUp .7s ease forwards .6s;opacity:0;}
+.header-line{width:40px;height:1px;background:var(--gold);margin:18px auto 0;animation:fadeUp .7s ease forwards .8s;opacity:0;}
+
+/* ── AFFILIATE NOTICE ── */
+.affiliate-bar{position:relative;z-index:1;max-width:900px;margin:20px auto 0;padding:0 24px;}
+.affiliate-bar-inner{background:rgba(184,146,42,.07);border:1px solid rgba(184,146,42,.3);padding:8px 14px;font-size:11px;color:var(--muted);display:flex;align-items:center;gap:8px;}
+.affiliate-bar-inner::before{content:'PR';background:var(--gold);color:white;font-size:9px;font-weight:700;padding:2px 5px;flex-shrink:0;}
+
+/* ── TOP NAV ── */
+.top-nav{position:relative;z-index:1;max-width:780px;margin:40px auto 0;padding:0 24px;}
+.nav-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.nav-card{background:var(--paper3);border:1px solid var(--border);padding:28px 24px;cursor:pointer;transition:all .25s;text-align:center;}
+.nav-card:hover{border-color:var(--gold);transform:translateY(-3px);box-shadow:0 10px 32px var(--shadow);}
+.nav-card.active{border-color:var(--gold);box-shadow:0 0 0 2px var(--gold),0 10px 32px var(--shadow);}
+.nav-icon{font-size:28px;margin-bottom:10px;}
+.nav-title{font-family:'Noto Serif JP',serif;font-size:16px;font-weight:600;letter-spacing:.1em;margin-bottom:6px;}
+.nav-desc{font-size:11px;color:var(--muted);line-height:1.7;}
+
+/* ── SCREENS ── */
+.screen{display:none;}
+.screen.active{display:block;}
+
+/* ════════════════════════
+   SCREEN A: お悩みから
+════════════════════════ */
+.concern-wrap{position:relative;z-index:1;max-width:900px;margin:40px auto 0;padding:0 24px 80px;}
+.section-label{text-align:center;margin-bottom:28px;}
+.section-label h2{font-family:'Noto Serif JP',serif;font-size:20px;font-weight:400;letter-spacing:.25em;}
+.section-label p{font-size:12px;color:var(--muted);margin-top:6px;letter-spacing:.15em;}
+
+.concern-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-bottom:40px;}
+.concern-btn{background:var(--paper3);border:1px solid var(--border);padding:18px 16px;cursor:pointer;transition:all .2s;text-align:center;font-family:'Noto Sans JP',sans-serif;}
+.concern-btn:hover{border-color:var(--gold);background:var(--gold-l);}
+.concern-btn.selected{border-color:var(--gold);background:var(--gold-l);box-shadow:0 0 0 2px var(--gold);}
+.concern-btn .c-icon{font-size:22px;display:block;margin-bottom:6px;}
+.concern-btn .c-name{font-size:13px;font-weight:500;color:var(--ink);}
+.concern-btn .c-sub{font-size:10px;color:var(--muted);margin-top:3px;}
+
+/* ── SIMPLE QUIZ ── */
+.simple-quiz{background:var(--paper3);border:1px solid var(--border);padding:28px;margin-bottom:24px;}
+.sq-title{font-family:'Noto Serif JP',serif;font-size:16px;font-weight:400;margin-bottom:6px;letter-spacing:.05em;}
+.sq-hint{font-size:11px;color:var(--muted);margin-bottom:18px;line-height:1.7;}
+.sq-options{display:flex;flex-direction:column;gap:8px;}
+.sq-opt{display:flex;align-items:center;gap:10px;padding:12px 14px;background:white;border:1px solid var(--border);cursor:pointer;font-size:13px;transition:all .2s;text-align:left;width:100%;font-family:'Noto Sans JP',sans-serif;}
+.sq-opt:hover{border-color:var(--gold);background:var(--gold-l);}
+.sq-opt.sel{border-color:var(--gold);background:var(--gold-l);}
+.sq-check{width:18px;height:18px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:10px;flex-shrink:0;transition:all .2s;}
+.sq-opt.sel .sq-check{background:var(--gold);border-color:var(--gold);color:white;}
+.sq-progress{font-size:10px;letter-spacing:.2em;color:var(--gold);margin-bottom:12px;}
+
+/* ════════════════════════
+   SCREEN B: 体質から
+════════════════════════ */
+.full-quiz-wrap{position:relative;z-index:1;max-width:720px;margin:40px auto 0;padding:0 24px 80px;}
+.question-card{background:var(--paper3);border:1px solid var(--border);padding:28px;margin-bottom:20px;}
+.q-prog-label{font-size:10px;letter-spacing:.2em;color:var(--gold);margin-bottom:10px;}
+.q-prog-bar{height:2px;background:var(--border);margin-bottom:18px;overflow:hidden;}
+.q-prog-fill{height:100%;background:var(--gold);transition:width .4s ease;}
+.q-text{font-family:'Noto Serif JP',serif;font-size:clamp(14px,2.2vw,17px);font-weight:400;line-height:1.7;letter-spacing:.04em;margin-bottom:6px;}
+.q-hint{font-size:11px;color:var(--muted);margin-bottom:20px;line-height:1.7;}
+.opts{display:flex;flex-direction:column;gap:8px;}
+.opt-btn{display:flex;align-items:center;gap:10px;padding:13px 16px;background:white;border:1px solid var(--border);cursor:pointer;text-align:left;width:100%;font-family:'Noto Sans JP',sans-serif;font-size:13px;color:var(--ink);transition:all .2s;}
+.opt-btn:hover{border-color:var(--gold);background:var(--gold-l);}
+.opt-btn.sel{border-color:var(--gold);background:var(--gold-l);}
+.opt-btn.sel .opt-chk{background:var(--gold);border-color:var(--gold);color:white;}
+.opt-chk{width:18px;height:18px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:10px;flex-shrink:0;transition:all .2s;}
+.quiz-nav{display:flex;justify-content:space-between;align-items:center;margin-top:14px;}
+
+/* ════════════════════════
+   RESULT (共通)
+════════════════════════ */
+.result-wrap{position:relative;z-index:1;max-width:800px;margin:40px auto 0;padding:0 24px 80px;}
+.result-hero{text-align:center;margin-bottom:32px;}
+.result-badge{display:inline-block;padding:6px 20px;background:var(--gold);color:white;font-family:'Zen Antique',serif;font-size:12px;letter-spacing:.3em;margin-bottom:12px;}
+.result-title{font-family:'Noto Serif JP',serif;font-size:clamp(20px,3.5vw,30px);font-weight:700;letter-spacing:.1em;margin-bottom:10px;}
+.result-title span{color:var(--gold);}
+.result-poem{font-family:'Noto Serif JP',serif;font-size:clamp(13px,2vw,15px);line-height:2.1;letter-spacing:.04em;max-width:520px;margin:0 auto 16px;padding:18px 22px;background:var(--gold-l);border-left:3px solid var(--gold);text-align:left;}
+.result-poem em{color:var(--gold);font-style:normal;font-weight:600;}
+.result-desc{font-size:13px;line-height:2;color:var(--muted);max-width:560px;margin:0 auto;}
+
+/* ── SCORES ── */
+.scores-box{background:var(--paper3);border:1px solid var(--border);padding:22px;margin-bottom:28px;}
+.box-title{font-size:10px;letter-spacing:.25em;color:var(--gold);margin-bottom:14px;}
+.score-row{display:flex;align-items:center;gap:10px;margin-bottom:8px;}
+.score-lbl{font-size:11px;min-width:76px;}
+.score-bar-wrap{flex:1;height:5px;background:var(--border);border-radius:3px;overflow:hidden;}
+.score-bar{height:100%;border-radius:3px;background:var(--gold);transition:width 1s ease;}
+.score-pt{font-size:10px;color:var(--muted);min-width:22px;text-align:right;}
+
+/* ── RECIPE ── */
+.recipe-box{background:var(--paper3);border:1px solid var(--border);overflow:hidden;margin-bottom:28px;}
+.recipe-head{padding:18px 22px 14px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:12px;}
+.recipe-icon-wrap{width:40px;height:40px;border-radius:50%;background:var(--gold-l);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
+.recipe-name{font-family:'Noto Serif JP',serif;font-size:15px;font-weight:600;letter-spacing:.08em;}
+.recipe-tag{font-size:10px;color:var(--gold);letter-spacing:.12em;margin-top:2px;}
+.recipe-body{padding:18px 22px 22px;}
+.recipe-why{font-size:12px;line-height:1.9;color:#6a5c48;margin-bottom:14px;padding:10px 12px;background:rgba(184,146,42,.05);border-left:2px solid var(--gold);}
+.ingr-title{font-size:10px;letter-spacing:.22em;color:var(--gold);margin-bottom:8px;}
+.ingr-list{list-style:none;display:flex;flex-direction:column;gap:6px;margin-bottom:14px;}
+.ingr-item{display:flex;align-items:center;gap:8px;padding:7px 10px;background:var(--paper2);font-size:12px;}
+.ingr-dot{width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0;}
+.ingr-name{font-weight:500;min-width:100px;}
+.ingr-eff{font-size:11px;color:var(--muted);flex:1;}
+.ingr-g{font-family:'Noto Serif JP',serif;color:var(--gold);font-size:11px;font-weight:600;margin-left:auto;}
+.brew-wrap{border-top:1px dashed var(--border);padding-top:12px;}
+.brew-title{font-size:10px;letter-spacing:.2em;color:var(--red);margin-bottom:8px;}
+.brew-step{display:flex;gap:8px;font-size:12px;line-height:1.7;color:#6a5c48;margin-bottom:5px;}
+.brew-num{width:16px;height:16px;border-radius:50%;background:var(--red);color:white;font-size:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;}
+.caution-box{margin-top:12px;padding:9px 11px;background:rgba(139,46,26,.05);border-left:2px solid var(--red);font-size:11px;line-height:1.8;color:var(--red);}
+.medical-box{margin-top:8px;padding:9px 11px;background:rgba(58,92,58,.06);border-left:2px solid var(--green);font-size:11px;line-height:1.8;color:var(--green);}
+.medical-box strong{display:block;font-size:10px;letter-spacing:.12em;margin-bottom:2px;opacity:.8;}
+
+/* ── TIPS ── */
+.tips-box{background:var(--paper3);border:1px solid var(--border);padding:22px;margin-bottom:28px;}
+.tips-title{font-family:'Noto Serif JP',serif;font-size:14px;font-weight:600;letter-spacing:.1em;margin-bottom:14px;}
+.tip-item{display:flex;gap:8px;font-size:12px;line-height:1.7;color:#6a5c48;margin-bottom:7px;}
+.tip-icon{flex-shrink:0;font-size:13px;}
+
+/* ── DISCLAIMER ── */
+.disclaimer{background:rgba(139,46,26,.04);border:1px solid rgba(139,46,26,.18);padding:18px 22px;font-size:11px;line-height:1.9;color:#7a5c4a;margin-bottom:22px;}
+.disclaimer strong{color:var(--red);display:block;margin-bottom:5px;font-size:12px;}
+
+/* ── BUTTONS ── */
+.btn-primary{display:inline-flex;align-items:center;gap:8px;padding:13px 36px;background:var(--gold);color:white;border:none;font-family:'Noto Sans JP',sans-serif;font-size:13px;letter-spacing:.18em;cursor:pointer;transition:all .2s;}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(184,146,42,.3);}
+.btn-secondary{display:inline-flex;align-items:center;gap:6px;padding:9px 20px;background:transparent;color:var(--muted);border:1px solid var(--border);font-family:'Noto Sans JP',sans-serif;font-size:12px;letter-spacing:.12em;cursor:pointer;transition:all .2s;}
+.btn-secondary:hover{border-color:var(--gold);color:var(--gold);}
+.btn-row{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:8px;}
+.back-link{position:relative;z-index:1;text-align:center;padding:20px 0 0;cursor:pointer;font-size:12px;color:var(--muted);letter-spacing:.1em;}
+.back-link:hover{color:var(--gold);}
+
+footer{position:relative;z-index:1;text-align:center;padding:32px 20px;border-top:1px solid var(--border);font-size:11px;color:var(--muted);line-height:1.9;}
+
+/* ── 食材辞典 ── */
+.zukan-wrap{position:relative;z-index:1;max-width:1000px;margin:40px auto 0;padding:0 24px 80px;}
+.zukan-filter{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;justify-content:center;}
+.filter-btn{padding:6px 14px;border:1px solid var(--border);background:var(--paper3);font-family:'Noto Sans JP',sans-serif;font-size:11px;letter-spacing:.1em;color:var(--muted);cursor:pointer;transition:all .2s;border-radius:20px;}
+.filter-btn:hover{border-color:var(--gold);color:var(--gold);}
+.filter-btn.active{background:var(--gold);border-color:var(--gold);color:white;}
+
+/* 選択バー */
+.zukan-select-bar{background:var(--paper);border:1px solid var(--border);padding:10px 14px;margin-bottom:16px;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;}
+.zukan-select-info{font-size:12px;color:var(--muted);}
+.zukan-select-info strong{color:var(--gold);font-size:15px;margin-right:4px;}
+.zukan-select-actions{display:flex;gap:8px;}
+.btn-blend{padding:8px 18px;background:var(--gold);color:white;border:none;font-family:'Noto Sans JP',sans-serif;font-size:12px;letter-spacing:.12em;cursor:pointer;transition:all .2s;}
+.btn-blend:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(184,146,42,.3);}
+.btn-blend:disabled{background:var(--border);color:var(--muted);cursor:not-allowed;transform:none;box-shadow:none;}
+.btn-clear{padding:8px 12px;background:transparent;color:var(--muted);border:1px solid var(--border);font-family:'Noto Sans JP',sans-serif;font-size:12px;cursor:pointer;transition:all .2s;}
+.btn-clear:hover{border-color:var(--red);color:var(--red);}
+
+/* グリッド */
+.zukan-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:8px;margin-bottom:28px;}
+.zukan-card{background:var(--paper3);border:1px solid var(--border);padding:13px;cursor:pointer;transition:all .2s;position:relative;user-select:none;}
+.zukan-card:hover{border-color:var(--gold);box-shadow:0 4px 12px var(--shadow);}
+.zukan-card.selected{border-color:var(--gold);background:var(--gold-l);box-shadow:0 0 0 2px var(--gold);}
+.zukan-card.hidden{display:none;}
+.zukan-check{position:absolute;top:7px;right:7px;width:16px;height:16px;border-radius:50%;border:1px solid var(--border);background:white;display:flex;align-items:center;justify-content:center;font-size:9px;transition:all .2s;}
+.zukan-card.selected .zukan-check{background:var(--gold);border-color:var(--gold);color:white;}
+.zukan-icon{font-size:18px;margin-bottom:5px;}
+.zukan-name{font-family:'Noto Serif JP',serif;font-size:13px;font-weight:600;margin-bottom:2px;}
+.zukan-read{font-size:9px;color:var(--muted);letter-spacing:.06em;margin-bottom:5px;}
+.zukan-nature-badge{font-size:9px;padding:1px 5px;border-radius:2px;display:inline-block;margin-bottom:5px;}
+.nature-hot{background:rgba(139,46,26,.1);color:var(--red);}
+.nature-warm{background:rgba(184,100,30,.1);color:#b46020;}
+.nature-neutral{background:rgba(184,146,42,.1);color:var(--gold);}
+.nature-cool{background:rgba(58,92,58,.1);color:var(--green);}
+.nature-cold{background:rgba(30,80,140,.1);color:#2060a0;}
+.zukan-tags{display:flex;flex-wrap:wrap;gap:3px;}
+.zukan-tag{font-size:9px;padding:1px 5px;border-radius:2px;}
+.tag-type{background:rgba(184,146,42,.12);color:var(--gold);}
+.tag-season{background:rgba(58,92,58,.1);color:var(--green);}
+
+/* ブレンド結果 */
+.blend-result{background:var(--paper3);border:2px solid var(--gold);padding:24px;margin-bottom:28px;display:none;}
+.blend-result.open{display:block;animation:fadeUp .4s ease;}
+.br-header{margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid var(--border);}
+.br-title{font-family:'Noto Serif JP',serif;font-size:18px;font-weight:700;letter-spacing:.1em;margin-bottom:4px;}
+.br-sub{font-size:11px;color:var(--muted);}
+.br-warning{padding:10px 13px;background:rgba(139,46,26,.06);border-left:3px solid var(--red);font-size:11px;line-height:1.8;color:var(--red);margin-bottom:16px;}
+.br-warning strong{display:block;font-size:10px;letter-spacing:.12em;margin-bottom:2px;}
+.br-section-title{font-size:10px;letter-spacing:.22em;color:var(--gold);margin-bottom:10px;}
+.br-eff-tags{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:12px;}
+.br-eff-tag{padding:5px 13px;border:1px solid var(--border);font-size:12px;}
+.br-eff-tag.primary{background:var(--gold);color:white;border-color:var(--gold);}
+.br-eff-tag.secondary{background:var(--gold-l);color:var(--ink);}
+.br-eff-desc{font-size:12px;line-height:1.9;color:#6a5c48;padding:11px 13px;background:rgba(184,146,42,.05);border-left:2px solid var(--gold);margin-bottom:18px;}
+.br-fitness{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:18px;}
+.br-fit-item{background:var(--paper2);padding:10px;text-align:center;}
+.br-fit-label{font-size:10px;letter-spacing:.12em;color:var(--muted);margin-bottom:4px;}
+.br-fit-val{font-size:11px;color:var(--ink);line-height:1.6;}
+.br-ingr-list{display:flex;flex-direction:column;gap:5px;margin-bottom:16px;}
+.br-ingr-item{display:flex;align-items:center;gap:8px;padding:7px 10px;background:var(--paper2);font-size:12px;}
+.br-ingr-icon{font-size:15px;flex-shrink:0;}
+.br-ingr-name{font-weight:500;min-width:85px;}
+.br-ingr-eff{font-size:11px;color:var(--muted);flex:1;}
+.br-ingr-g{font-family:'Noto Serif JP',serif;color:var(--gold);font-size:11px;font-weight:600;margin-left:auto;white-space:nowrap;}
+.br-ingr-nature{font-size:9px;padding:1px 4px;border-radius:2px;margin-left:5px;flex-shrink:0;}
+.br-how-title{font-size:10px;letter-spacing:.2em;color:var(--red);margin-bottom:8px;}
+.br-step{display:flex;gap:8px;font-size:12px;line-height:1.7;color:#6a5c48;margin-bottom:4px;}
+.br-step-num{width:16px;height:16px;border-radius:50%;background:var(--red);color:white;font-size:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;}
+.br-caution{margin-top:12px;padding:9px 11px;background:rgba(139,46,26,.05);border-left:2px solid var(--red);font-size:11px;line-height:1.8;color:var(--red);}
+.br-medical{margin-top:8px;padding:9px 11px;background:rgba(58,92,58,.06);border-left:2px solid var(--green);font-size:11px;line-height:1.8;color:var(--green);}
+.br-medical strong{display:block;font-size:10px;letter-spacing:.12em;margin-bottom:2px;opacity:.8;}
+
+@media(max-width:600px){
+  .br-fitness{grid-template-columns:1fr 1fr;}
+  .zukan-grid{grid-template-columns:repeat(2,1fr);}
+}
+/* ── アフィリエイトリンク ── */
+.affil-links{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap;}
+.affil-btn{display:inline-flex;align-items:center;gap:4px;padding:4px 10px;font-size:10px;letter-spacing:.08em;border-radius:2px;text-decoration:none;transition:opacity .2s;}
+.affil-btn:hover{opacity:.8;}
+.affil-amazon{background:#ff9900;color:white;}
+.affil-rakuten{background:#bf0000;color:white;}
+
+.season-box{background:var(--paper3);border:1px solid var(--border);padding:22px;margin-bottom:28px;position:relative;overflow:hidden;}
+.season-box::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--season-color,var(--gold));}
+.season-label{font-size:10px;letter-spacing:.25em;margin-bottom:6px;}
+.season-title{font-family:'Noto Serif JP',serif;font-size:16px;font-weight:600;letter-spacing:.1em;margin-bottom:10px;}
+.season-theme{font-size:12px;color:var(--muted);line-height:1.9;margin-bottom:14px;}
+.season-kanji{font-family:'Zen Antique',serif;font-size:11px;letter-spacing:.2em;padding:4px 10px;border:1px solid var(--border);display:inline-block;margin-bottom:14px;color:var(--muted);}
+.season-ingr-title{font-size:10px;letter-spacing:.22em;color:var(--gold);margin-bottom:8px;}
+.season-ingr-list{display:flex;flex-wrap:wrap;gap:6px;}
+.season-ingr-tag{background:var(--gold-l);border:1px solid var(--border);padding:4px 10px;font-size:11px;color:var(--ink);}
+.season-ingr-tag span{color:var(--muted);font-size:10px;margin-left:4px;}
+.season-note{margin-top:12px;padding:9px 11px;font-size:11px;line-height:1.8;color:var(--muted);background:rgba(184,146,42,.05);border-left:2px solid var(--gold);}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
+.fade-in{animation:fadeUp .5s ease forwards;}
+
+@media(max-width:600px){
+  .nav-grid{grid-template-columns:1fr;}
+  .concern-grid{grid-template-columns:repeat(2,1fr);}
+  .ingr-eff{display:none;}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <span class="header-kana">やくぜんちゃ ブレンドガイド</span>
+  <h1>薬膳茶<em>。</em></h1>
+  <p class="header-sub">お悩みから・体質から・食材から、あなたに合うブレンドを探す</p>
+  <div class="header-line"></div>
+</header>
+
+<div class="affiliate-bar">
+  <div class="affiliate-bar-inner">本サイトの食材リンクにはアフィリエイト広告が含まれます。紹介素材は情報の中立性を保つため特定商品ではなく素材カテゴリへのリンクです。</div>
+</div>
+
+<!-- ══ TOP NAVIGATION ══ -->
+<div class="top-nav" id="topNav" style="animation:fadeUp .7s ease forwards 1s;opacity:0;">
+  <div class="nav-grid" style="grid-template-columns:repeat(3,1fr);">
+    <div class="nav-card" onclick="showScreen('screenA')">
+      <div class="nav-icon">🌿</div>
+      <div class="nav-title">お悩みから探す</div>
+      <div class="nav-desc">眠れない・冷え・むくみなど<br>今気になる症状から選ぶ</div>
+    </div>
+    <div class="nav-card" onclick="showScreen('screenB')">
+      <div class="nav-icon">🔍</div>
+      <div class="nav-title">体質から診断する</div>
+      <div class="nav-desc">15問の問診で体質タイプを判定<br>気血水弁証にもとづく本格診断</div>
+    </div>
+    <div class="nav-card" onclick="showScreen('screenC')">
+      <div class="nav-icon">🌾</div>
+      <div class="nav-title">食材から探す</div>
+      <div class="nav-desc">手元の素材・気になる食材から<br>効能とブレンドを逆引きする</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════
+     SCREEN C: 食材辞典（複数選択）
+══════════════════════════════ -->
+<div class="screen" id="screenC">
+  <div class="back-link" onclick="backToTop()">← トップに戻る</div>
+  <div class="zukan-wrap">
+    <div class="section-label">
+      <h2>食材から探す</h2>
+      <p>使いたい素材を複数選んでブレンドの効能を確認できます</p>
+    </div>
+
+    <!-- フィルター -->
+    <div class="zukan-filter" id="zukanFilter">
+      <button class="filter-btn active" onclick="filterZukan('all',this)">すべて</button>
+      <button class="filter-btn" onclick="filterZukan('type:気虚',this)">気虚向き</button>
+      <button class="filter-btn" onclick="filterZukan('type:陽虚',this)">陽虚向き</button>
+      <button class="filter-btn" onclick="filterZukan('type:血虚',this)">血虚向き</button>
+      <button class="filter-btn" onclick="filterZukan('type:陰虚',this)">陰虚向き</button>
+      <button class="filter-btn" onclick="filterZukan('type:気滞',this)">気滞向き</button>
+      <button class="filter-btn" onclick="filterZukan('type:瘀血',this)">瘀血向き</button>
+      <button class="filter-btn" onclick="filterZukan('type:湿熱',this)">湿熱向き</button>
+      <button class="filter-btn" onclick="filterZukan('type:痰湿',this)">痰湿向き</button>
+      <button class="filter-btn" onclick="filterZukan('season:春',this)">春向き</button>
+      <button class="filter-btn" onclick="filterZukan('season:夏',this)">夏向き</button>
+      <button class="filter-btn" onclick="filterZukan('season:秋',this)">秋向き</button>
+      <button class="filter-btn" onclick="filterZukan('season:冬',this)">冬向き</button>
+    </div>
+
+    <!-- 選択バー -->
+    <div class="zukan-select-bar">
+      <div class="zukan-select-info">
+        <strong id="selectedCount">0</strong>種類選択中
+        <span id="selectedNames" style="margin-left:8px;color:var(--ink);"></span>
+      </div>
+      <div class="zukan-select-actions">
+        <button class="btn-clear" onclick="clearSelection()">クリア</button>
+        <button class="btn-blend" id="btnBlend" onclick="generateBlend()" disabled>このブレンドの効能を見る →</button>
+      </div>
+    </div>
+
+    <!-- ブレンド結果パネル -->
+    <div class="blend-result" id="blendResult">
+      <div class="br-header">
+        <div class="br-title" id="brTitle"></div>
+        <div class="br-sub" id="brSub"></div>
+      </div>
+      <div id="brWarning"></div>
+      <div class="br-section-title">● このブレンドの主な効能</div>
+      <div class="br-eff-tags" id="brEffTags"></div>
+      <div class="br-eff-desc" id="brEffDesc"></div>
+      <div class="br-fitness" id="brFitness"></div>
+      <div class="br-section-title">● 素材とグラム数（1人分・水500ml）</div>
+      <div class="br-ingr-list" id="brIngrList"></div>
+      <div class="br-how-title">◎ 作り方</div>
+      <div id="brSteps"></div>
+      <div id="brCaution"></div>
+    </div>
+
+    <!-- 食材グリッド -->
+    <div class="zukan-grid" id="zukanGrid"></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════
+     SCREEN A: お悩みから
+══════════════════════════════ -->
+<div class="screen" id="screenA">
+  <div class="back-link" onclick="backToTop()">← トップに戻る</div>
+  <div class="concern-wrap">
+
+    <!-- Step A1: 悩み選択 -->
+    <div id="stepA1">
+      <div class="section-label">
+        <h2>今一番気になるお悩みは？</h2>
+        <p>当てはまるものを1つ選んでください</p>
+      </div>
+      <div class="concern-grid">
+        <button class="concern-btn" onclick="selectConcern('sleep')">
+          <span class="c-icon">🌙</span>
+          <span class="c-name">眠れない</span>
+          <span class="c-sub">寝つき・眠りの浅さ</span>
+        </button>
+        <button class="concern-btn" onclick="selectConcern('cold')">
+          <span class="c-icon">🧣</span>
+          <span class="c-name">冷え性</span>
+          <span class="c-sub">手足の冷え・寒がり</span>
+        </button>
+        <button class="concern-btn" onclick="selectConcern('tired')">
+          <span class="c-icon">⚡</span>
+          <span class="c-name">疲れやすい</span>
+          <span class="c-sub">だるさ・気力不足</span>
+        </button>
+        <button class="concern-btn" onclick="selectConcern('stress')">
+          <span class="c-icon">🌸</span>
+          <span class="c-name">ストレス</span>
+          <span class="c-sub">イライラ・気分の落ち込み</span>
+        </button>
+        <button class="concern-btn" onclick="selectConcern('swelling')">
+          <span class="c-icon">💧</span>
+          <span class="c-name">むくみ</span>
+          <span class="c-sub">顔・脚のむくみ</span>
+        </button>
+        <button class="concern-btn" onclick="selectConcern('stomach')">
+          <span class="c-icon">🌿</span>
+          <span class="c-name">胃腸の不調</span>
+          <span class="c-sub">胃もたれ・消化不良</span>
+        </button>
+        <button class="concern-btn" onclick="selectConcern('eyes')">
+          <span class="c-icon">👁</span>
+          <span class="c-name">目の疲れ</span>
+          <span class="c-sub">かすみ・眼精疲労</span>
+        </button>
+        <button class="concern-btn" onclick="selectConcern('skin')">
+          <span class="c-icon">✨</span>
+          <span class="c-name">美容・肌荒れ</span>
+          <span class="c-sub">乾燥・ニキビ・くすみ</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Step A2: 簡易体質チェック -->
+    <div id="stepA2" style="display:none;">
+      <div class="section-label">
+        <h2 id="concernTitle">眠れない方へ</h2>
+        <p>3問だけ答えてください。より的確なブレンドをご提案します</p>
+      </div>
+      <div class="simple-quiz" id="sqCard">
+        <div class="sq-progress" id="sqProg">質問 1 / 3</div>
+        <div class="sq-title" id="sqText"></div>
+        <div class="sq-hint" id="sqHint"></div>
+        <div class="sq-options" id="sqOpts"></div>
+      </div>
+      <div style="text-align:center;margin-top:8px;">
+        <button class="btn-secondary" onclick="backToConcerns()">← 悩みを選び直す</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══════════════════════════════
+     SCREEN B: 体質診断（14問）
+══════════════════════════════ -->
+<div class="screen" id="screenB">
+  <div class="back-link" onclick="backToTop()">← トップに戻る</div>
+  <div class="full-quiz-wrap">
+    <div class="question-card">
+      <div class="q-prog-label" id="qProg">質問 1 / 14</div>
+      <div class="q-prog-bar"><div class="q-prog-fill" id="qProgFill" style="width:7%"></div></div>
+      <div class="q-text" id="qText"></div>
+      <div class="q-hint" id="qHint"></div>
+      <div class="opts" id="qOpts"></div>
+    </div>
+    <div class="quiz-nav">
+      <button class="btn-secondary" id="btnPrev" onclick="prevQ()" style="display:none">← 前へ</button>
+      <button class="btn-primary" id="btnNext" onclick="nextQ()" style="display:none">次へ →</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════
+     SCREEN R: 結果
+══════════════════════════════ -->
+<div class="screen" id="screenR">
+  <div class="back-link" id="backFromResult" onclick="backToTop()">← トップに戻る</div>
+  <div class="result-wrap fade-in">
+    <div class="result-hero">
+      <div class="result-badge" id="rBadge"></div>
+      <div class="result-title" id="rTitle"></div>
+      <div class="result-poem" id="rPoem"></div>
+      <p class="result-desc" id="rDesc"></p>
+    </div>
+    <div class="scores-box" id="rScores" style="display:none">
+      <div class="box-title">● 体質スコア（複数の傾向を持つことが普通です）</div>
+      <div id="scoresDisplay"></div>
+    </div>
+    <div class="tips-box">
+      <div class="tips-title">🌿 生活養生のヒント</div>
+      <div id="rTips"></div>
+    </div>
+    <!-- 季節養生ボックス -->
+    <div class="season-box" id="rSeasonBox" style="display:none">
+      <div class="season-label" id="rSeasonLabel"></div>
+      <div class="season-title" id="rSeasonTitle"></div>
+      <div class="season-kanji" id="rSeasonKanji"></div>
+      <div class="season-theme" id="rSeasonTheme"></div>
+      <div class="season-ingr-title">● この季節に加えたい素材</div>
+      <div class="season-ingr-list" id="rSeasonIngr"></div>
+      <div class="season-note" id="rSeasonNote"></div>
+    </div>
+    <div style="margin-bottom:28px;">
+      <div style="font-family:'Noto Serif JP',serif;font-size:16px;font-weight:600;letter-spacing:.12em;margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--border);">おすすめ薬膳茶ブレンド</div>
+      <div id="rRecipe"></div>
+    </div>
+    <div class="disclaimer">
+      <strong>⚠ 重要事項・分類について</strong>
+      本診断は中医学の「気血水弁証」にもとづき<em>今の体の状態を見立てる</em>参考情報です。国立北京中医薬大学をルーツとする日本の中医薬膳教育で広く使われている実用的な分類体系です。中国国家標準（王琦教授・2009年・9分類）とは目的と体系が一部異なります。<br><br>
+      本診断は医療診断ではありません。効果には個人差があります。持病・妊娠中・薬服用中の方は必ず医師・薬剤師にご相談ください。
+    </div>
+    <div class="btn-row">
+      <button class="btn-secondary" onclick="backToTop()">← 最初からやり直す</button>
+      <button class="btn-primary" onclick="showScreen('screenB');resetFullQuiz()">体質診断もやってみる →</button>
+    </div>
+  </div>
+</div>
+
+<footer>
+  本サイトの情報は食養生の参考情報です。医師・薬剤師による診断・処方の代替ではありません。
+</footer>
+
+<script>
+// ══════════════════════════════════════════════
+// ① 体質データ（8タイプ）
+// ══════════════════════════════════════════════
+const types = {
+  気虚:{ name:"気虚", read:"ききょ", tag:"エネルギー不足タイプ",
+    poem:"今のあなたは、<em>長い雨のあとの土</em>のような状態。\n水を含みすぎて、踏み出す力が出にくくなっています。\nまずは温めて、ゆっくり乾かすことから始めましょう。\n頑張りすぎてきた自分を、少しだけ休ませてあげてください。",
+    desc:"体を動かすエネルギー「気」が不足した状態とされています。疲れやすい・だるい・胃腸が弱い・免疫が落ちやすいなどの傾向があります。",
+    tips:[{i:"🌅",t:"早寝早起き・規則正しい生活が気を補う基本です"},{i:"🍽",t:"三食しっかり食べる・腹八分目を意識する"},{i:"🚶",t:"激しい運動より、ウォーキングなど穏やかな運動が向いています"},{i:"😮‍💨",t:"深呼吸・腹式呼吸を日課に"}],
+    recipe:{ name:"補気・温養ブレンド", icon:"⚡", water:"500ml",
+      why:"なつめは「気・血を補う食材の代表」とされ、クコは抗酸化作用が研究で確認されています（PubMed: LBPs研究）。生姜で脾胃を温め、陳皮で気の巡りを整えます。",
+      ingr:[{n:"なつめ",g:"3〜4粒",e:"気・血を補い、胃腸を温める"},{n:"クコの実",g:"8g",e:"抗酸化・滋養・免疫サポート"},{n:"陳皮（みかんの皮）",g:"2g",e:"気の巡りを整え消化をサポート"},{n:"生姜（乾燥）",g:"3枚",e:"胃腸を温め吸収力をサポートする"}],
+      steps:["全素材を水から鍋に入れる","中火で沸騰後、弱火で10分煮出す","こして、午前〜昼に温かく飲む"],
+      caution:"胃腸の調子が悪い日は生姜・陳皮を少なめに。効果には個人差があります。",
+      medical:"原因不明の強い倦怠感が1ヶ月以上・体重減少・発熱を伴う場合は内科を受診してください。"}},
+
+  陽虚:{ name:"陽虚", read:"ようきょ", tag:"温める力不足タイプ",
+    poem:"今のあなたは、<em>火が弱くなった暖炉</em>のような状態。\n燃料はあるのに、炎が小さくて体の隅々まで温められていない。\n冬が特につらい、温かい場所に飛び込みたい——その感覚は本物のサインです。\n炎を育て直すように、じっくり内側から温めていきましょう。",
+    desc:"体を温める力「陽気」が不足した状態とされています。強い冷え・寒がり・顔色が青白い・下痢しやすいなどの傾向があります。",
+    tips:[{i:"🛁",t:"毎日湯船につかり、体の芯から温める習慣を"},{i:"🌅",t:"朝の冷気に注意。起き抜けに温かいものを必ず飲んで"},{i:"🧦",t:"腹・腰・足首を冷やさないよう重ね着を意識して"},{i:"🏋️",t:"適度な運動で陽気を動かすことも大切"}],
+    recipe:{ name:"温陽・補腎ブレンド", icon:"🔥", water:"500ml",
+      why:"乾燥生姜は「温める力」が特に強いとされる素材。桂皮は血行を促進しながら体の奥から温め、なつめで気を補います。",
+      ingr:[{n:"生姜（乾燥スライス）",g:"5〜6枚",e:"陽虚の代表素材・体の奥から温める"},{n:"桂皮（シナモン）",g:"1g",e:"血行促進・温める力をサポートする"},{n:"なつめ",g:"3粒",e:"気を補い、胃腸を温めるとされる"},{n:"黒糖",g:"小さじ1",e:"甘みで気・血を補い飲みやすくする"}],
+      steps:["なつめ・生姜・桂皮を水から中火にかける","沸騰後、弱火で15分煮出す","こして黒糖を加えて溶かす","朝・昼に必ず温かく飲む"],
+      caution:"桂皮は1g以内を目安に。妊娠中・高血圧の方は医師へご相談ください。効果には個人差があります。",
+      medical:"冷えに加えて動悸・息切れ・むくみが伴う場合は循環器内科を受診してください。"}},
+
+  血虚:{ name:"血虚", read:"けっきょ", tag:"血の栄養不足タイプ",
+    poem:"今のあなたは、<em>水の少ない川</em>のような状態。\n流れてはいるけれど、水かさが足りず、\n遠くまで栄養を届けることが難しくなっています。\n夜更かしとスマホが、その水を少しずつ奪っているかもしれません。",
+    desc:"体に栄養・潤いを届ける「血」が不足した状態とされています。顔色が悪い・めまい・立ちくらみ・眠りが浅い・目が疲れやすいなどの傾向があります。",
+    tips:[{i:"🌙",t:"血は夜の睡眠によって作られます。23時前には就寝を"},{i:"🥩",t:"鉄分・葉酸を含む食材（レバー・ほうれん草・黒ごま）を意識して"},{i:"👁",t:"目の使い過ぎは血を消耗します。スマホ・PC画面を適度に休ませて"},{i:"🧘",t:"過度なダイエットは血虚を悪化させます"}],
+    recipe:{ name:"補血・安神ブレンド", icon:"🌙", water:"400ml",
+      why:"なつめは補血の代表食材で、ゆり根は「心を潤し不安・不眠をサポートする」とされます。クコ・菊花はビタミンB1・ゼアキサンチンを含む伝統的な組み合わせです。",
+      ingr:[{n:"なつめ",g:"3〜4粒",e:"血を補い、心を安定させるとされる"},{n:"クコの実",g:"5g",e:"肝・腎を養い目をいたわるとされる"},{n:"ゆり根（乾燥）",g:"3g",e:"心を潤し、不安・動悸をサポートする"},{n:"菊花",g:"2g",e:"ビタミンB1含有・目の疲れをいたわる"}],
+      steps:["なつめ・クコ・ゆり根を水から10分煮出す","菊花は最後2〜3分で加える（香りが飛ばないよう）","こして、就寝1〜2時間前に温かく飲む"],
+      caution:"お好みで蜂蜜少量を加えると飲みやすくなります。カフェインなし。効果には個人差があります。",
+      medical:"眠れない状態が2週間以上続く・日常生活に支障が出る場合は心療内科へのご相談をおすすめします。"}},
+
+  陰虚:{ name:"陰虚", read:"いんきょ", tag:"潤い不足タイプ",
+    poem:"今のあなたは、<em>夕暮れの砂漠</em>のような状態。\n日中の熱がまだ地面に残っていて、夜になっても冷めにくい。\n潤いが足りないと、体はじわじわと空回りし始めます。\n「もっと頑張れる」という感覚が、実は体のSOSかもしれません。",
+    desc:"体に潤いを与える「陰（津液）」が不足した状態とされています。ほてり・のぼせ・口の渇き・寝汗・肌の乾燥などの傾向があります。",
+    tips:[{i:"🌙",t:"過労・夜更かし・サウナ・激しい運動は陰を消耗します"},{i:"💧",t:"白きくらげ・豆腐・れんこんなど潤い食材を意識して"},{i:"🌶",t:"唐辛子など刺激物・乾燥した環境は陰虚を悪化させます"},{i:"🧘",t:"深呼吸・ゆったりした運動（ヨガ等）が向いています"}],
+    recipe:{ name:"滋陰・清熱ブレンド", icon:"💧", water:"400ml",
+      why:"クコの実は中医学で「陰を補う」補陰薬の代表です。菊花は余分な熱を冷まし、なつめで気も補います。麦門冬は肺・心を潤す伝統的な素材です。",
+      ingr:[{n:"クコの実",g:"10g",e:"陰を補い、潤いをサポートするとされる"},{n:"菊花",g:"5g",e:"余分な熱を冷まし、目を養うとされる"},{n:"なつめ",g:"2粒",e:"気を補い、甘みを加える"},{n:"麦門冬",g:"3g",e:"肺・心を潤すとされる乾燥対策素材"}],
+      steps:["クコ・なつめ・麦門冬を水から10分煮出す","菊花を最後3分加える","こして、夕方〜就寝前に飲む"],
+      caution:"麦門冬は漢方薬局・Amazonなどで購入可能。なければクコ+菊花だけでもOK。効果には個人差があります。",
+      medical:"強いほてり・発熱・寝汗が続く場合は内科を受診してください。"}},
+
+  気滞:{ name:"気滞", read:"きたい", tag:"気の巡り停滞タイプ",
+    poem:"今のあなたは、<em>栓が詰まった水道管</em>のような状態。\nエネルギーは十分にあるのに、うまく流れ出せていない。\nイライラや胸のつかえは、流れを求めているサインです。\n香りのよいお茶一杯が、その栓をゆっくり緩めてくれます。",
+    desc:"「気」の流れが滞った状態とされています。イライラしやすい・ため込みやすい・お腹が張る・PMSの不調・喉に何か詰まる感じなどの傾向があります。\n\n※「突然の頭痛・動悸・上半身のみ熱い・理由のない焦り」がある方は、気滞が進んだ「気逆（きぎゃく）」の傾向も考えられます。薄荷を少量加えると気の上昇をおさえる効果が伝統的に期待されています。",
+    tips:[{i:"🎵",t:"音楽・好きなことでリラックスする時間を意識して"},{i:"🚶",t:"全身を動かすことで気を巡らせます"},{i:"🌸",t:"柑橘系・花の香りは気の滞りをほぐすとされています"},{i:"😤",t:"ため込まず、声に出す・日記を書くなど発散を意識して"}],
+    recipe:{ name:"理気・舒肝ブレンド", icon:"🌸", water:"400ml",
+      why:"マイカイ花（玫瑰花）は気の滞りを解消し気分を明るくするとされる香り系素材の代表です。菊花で肝の熱を冷まし、陳皮で気の流れを整えます。",
+      ingr:[{n:"マイカイ花（玫瑰花）",g:"3g",e:"気を巡らせ、気分をサポートするとされる"},{n:"菊花",g:"3g",e:"肝の熱を冷まし、鎮静をサポートする"},{n:"陳皮",g:"2g",e:"気の滞りを解消・胃腸を整えるとされる"},{n:"蜂蜜",g:"小さじ1",e:"甘みで気を補い、心を安らかに"}],
+      steps:["マイカイ花・菊花・陳皮を急須に入れる","90℃程度のお湯を注いで4〜5分蒸らす（煮出し不要）","蜂蜜を加えて飲む。2〜3煎楽しめます"],
+      caution:"マイカイ花・菊花は長く煮出さないこと（香りが飛ぶ）。妊娠中は用量にご注意ください。効果には個人差があります。",
+      medical:"強い不安・抑うつ・意欲の低下が2週間以上続く場合は心療内科へのご相談をおすすめします。"}},
+
+  瘀血:{ name:"瘀血", read:"おけつ", tag:"血の巡り停滞タイプ",
+    poem:"今のあなたは、<em>冬の朝に凍りかけた川</em>のような状態。\n流れは止まっていないけれど、あちこちに滞りができています。\nシミやクマや肩こりは、その詰まりが外に現れたサインかもしれません。\n温めて動かすことで、少しずつ流れを取り戻せます。",
+    desc:"「血」の流れが滞った状態とされています。目の下のクマ・シミ・頭痛・肩こり・生理痛がひどい・経血に塊が混じるなどの傾向があります。",
+    tips:[{i:"🏃",t:"適度な運動が血の流れを促します。毎日少し体を動かして"},{i:"🛁",t:"お風呂にしっかり入り体を温めることが血の巡りをサポートします"},{i:"❄️",t:"冷え・長時間の同じ姿勢・ストレスは瘀血を悪化させます"},{i:"🧅",t:"玉ねぎ・ニラ・サフランなど血の巡りをサポートする食材を意識して"}],
+    recipe:{ name:"活血・通絡ブレンド", icon:"🌺", water:"500ml",
+      why:"マイカイ花は気と血の巡りを同時にサポートするとされます。黒豆はアントシアニン豊富で血の流れを養うとされ、生姜で体を温めながら巡りをサポートします。",
+      ingr:[{n:"マイカイ花（玫瑰花）",g:"3g",e:"気・血の巡りをサポートするとされる"},{n:"黒豆（炒り）",g:"8g",e:"腎を補い血の巡りをサポートするとされる"},{n:"なつめ",g:"2粒",e:"血を養い、気を補うとされる"},{n:"生姜（乾燥）",g:"3枚",e:"体を温め、血の流れをサポートする"}],
+      steps:["黒豆・なつめ・生姜を水から10分煮出す","火を止めてマイカイ花を加え3分蒸らす","こして飲む。日中〜夕方が向いています"],
+      caution:"マイカイ花は最後に入れてください。妊娠中の方は注意が必要です。効果には個人差があります。",
+      medical:"慢性的な痛み・しこり・血の塊が気になる場合は婦人科・内科での確認をおすすめします。"}},
+
+  湿熱:{ name:"湿熱", read:"しつねつ", tag:"熱と湿が混在するタイプ",
+    poem:"今のあなたは、<em>蒸し暑い真夏の日に蓋をされた鍋</em>のような状態。\n熱と湿気が体の中でこもって、出口を探しています。\nニキビ・口臭・体のベタつきは、その「逃げ場」がないサインかもしれません。\nまず熱を冷まし、湿を外に流す道を作ってあげましょう。",
+    desc:"余分な湿と熱が同時にこもった状態とされています。ニキビ・吹き出物・体のベタつき・口臭・尿が濃い・皮膚の赤みなどの傾向があります。痰湿と似ていますが「熱感・炎症・赤み」があることが特徴です。",
+    tips:[{i:"🌶",t:"辛い食べ物・揚げ物・お酒は湿熱を悪化させます"},{i:"🥦",t:"苦みのある野菜（ゴーヤ・春菊・セロリ）は熱を冷ます素材とされています"},{i:"💧",t:"水分をしっかり補給しながら、汗で熱を排出することを意識して"},{i:"🌙",t:"夜更かしは熱がこもりやすくなります。睡眠を整えることが基本です"}],
+    recipe:{ name:"清熱・利湿ブレンド", icon:"🌿", water:"500ml",
+      why:"菊花は余分な熱を冷ます代表素材として広く使われてきました。ハトムギは湿を排出しながら肌をサポートするとされ、薄荷は清涼感で熱を冷まします。どくだみは利尿・解毒をサポートする伝統的な和ハーブです。",
+      ingr:[{n:"菊花",g:"5g",e:"余分な熱を冷まし、鎮静をサポートする"},{n:"ハトムギ（炒り）",g:"8g",e:"湿を排出し肌をサポートするとされる"},{n:"薄荷（ペパーミント）",g:"2g",e:"清涼感で熱を冷まし気の巡りをサポート"},{n:"どくだみ（乾燥）",g:"3g",e:"利尿・解毒をサポートする和ハーブ"}],
+      steps:["ハトムギを水から8分煮出す","どくだみを加えてさらに5分煮出す","火を止めて菊花・薄荷を加え3分蒸らす","こして、常温〜ぬるめで飲む"],
+      caution:"体を冷やす性質のため、冷え性の方には向きません。ハトムギは妊娠中の方は避けてください。効果には個人差があります。",
+      medical:"ニキビ・肌荒れが広範囲に悪化する・発熱を伴う場合は皮膚科・内科を受診してください。"}},
+
+  痰湿:{ name:"痰湿", read:"たんしつ", tag:"余分な水の滞りタイプ",
+    poem:"今のあなたは、<em>梅雨の湿った空気をたっぷり含んだ雲</em>のような状態。\n体の中に余分な水と重さが溜まって、動き出すのがしんどい。\n雨の日に体が重い、むくむ——それは体が「流して」と言っているサインです。\n汗をかき、温めることで、その重さは少しずつ軽くなります。",
+    desc:"体に余分な水分・老廃物「痰湿」が溜まった状態とされています。むくみやすい・体が重だるい・雨の日に体調が悪い・ニキビや肌のベタつき・常に眠いなどの傾向があります。",
+    tips:[{i:"🏊",t:"運動して汗をかき、体内の余分な水・老廃物を排出することが大切"},{i:"🥗",t:"甘いもの・脂っこいもの・果物の食べすぎは痰湿を招くとされます"},{i:"🛁",t:"シャワーより湯船につかって体を温めて"},{i:"🌾",t:"雑穀・海藻・根菜など食物繊維を意識してとるとよいとされます"}],
+    recipe:{ name:"利水・健脾ブレンド", icon:"💧", water:"500ml",
+      why:"ハトムギは「体の湿を排出する」代表素材として中医学・民間療法双方で用いられてきました。とうもろこしの髭は利尿をサポートし、黒豆は腎を補いながら水の巡りを整えるとされています。",
+      ingr:[{n:"ハトムギ（炒り）",g:"10g",e:"湿・余分な水分を排出するとされる"},{n:"とうもろこしの髭",g:"5g",e:"腎をサポートし水分代謝を助けるとされる"},{n:"黒豆（炒り）",g:"8g",e:"腎を補い水の巡りをサポートするとされる"},{n:"生姜（乾燥）",g:"2枚",e:"体を温めながら代謝をサポートする"}],
+      steps:["全素材を水から鍋に入れる","沸騰後、弱火で15分ほどしっかり煮出す","こして日中に少しずつ飲む（1日かけてもOK）"],
+      caution:"ハトムギは妊娠中の方は避けてください。飲みすぎは逆効果なので1日500ml以内を目安に。効果には個人差があります。",
+      medical:"全身のむくみ・急激なむくみ・片側のむくみは心臓・腎臓疾患の可能性があります。必ず内科を受診してください。"}},
+};
+
+// ══════════════════════════════════════════════
+// ② 悩み×体質 ブレンドマトリクス
+// ══════════════════════════════════════════════
+// 各悩みに対して関連する体質タイプを3〜4つ定義。
+// それぞれに「この組み合わせ専用の補足コメント」を付ける。
+
+const concernBlends = {
+  sleep:{
+    label:"眠れない", icon:"🌙",
+    types:{
+      血虚:{ note:"血が足りて心が養われると、夢が減り眠りが深くなるとされています。夜更かしとスマホをやめることが一番の養生です。" },
+      陰虚:{ note:"熱がこもって眠れないタイプ。体を冷やさず潤すことで、寝つきが改善するとされています。" },
+      気滞:{ note:"考えすぎ・不安で眠れないタイプ。香りで気の滞りをほぐすことが有効とされています。" },
+      気虚:{ note:"疲れているのに眠れないタイプ。気を補い、胃腸を整えることで睡眠の質が上がるとされています。" },
+    }
+  },
+  cold:{
+    label:"冷え性", icon:"🧣",
+    types:{
+      陽虚:{ note:"強い冷えは陽気（温める力）不足が主な原因とされています。乾燥生姜・桂皮で内側から温めます。" },
+      気虚:{ note:"気が足りないと体を温める力も弱くなります。エネルギーを補いながら温める素材を組み合わせます。" },
+      血虚:{ note:"血が足りないと末端まで温めることができなくなります。血を補いながら温めるブレンドです。" },
+      瘀血:{ note:"血の巡りが滞ると手足が冷えます。温めながら血の流れを促す素材を組み合わせます。" },
+    }
+  },
+  tired:{
+    label:"疲れやすい", icon:"⚡",
+    types:{
+      気虚:{ note:"慢性的な疲れ・だるさは気虚の典型です。気を補い、脾胃を整えることが基本とされています。" },
+      陽虚:{ note:"冷えを伴う疲れ・温まると楽になる方は陽虚傾向。温めながら気を補います。" },
+      血虚:{ note:"栄養が行き渡らない疲れ・めまいを伴う方は血虚傾向。血を補う素材を優先します。" },
+      陰虚:{ note:"ほてりを伴う疲れ・頑張りすぎで消耗した方は陰虚傾向。潤いを補いながら休ませます。" },
+    }
+  },
+  stress:{
+    label:"ストレス・イライラ", icon:"🌸",
+    types:{
+      気滞:{ note:"ストレスで気の流れが滞ったタイプ。香りで気を動かすことが有効とされています。" },
+      血虚:{ note:"不安感が強い・くよくよしやすいタイプ。血を補い心を落ち着ける素材を使います。" },
+      陰虚:{ note:"イライラに「ほてり感」が伴うタイプ。潤いを補い余分な熱をおさめます。" },
+      瘀血:{ note:"ため込んで体が固くなっているタイプ。血の巡りを促し、香りで気を動かします。" },
+    }
+  },
+  swelling:{
+    label:"むくみ", icon:"💧",
+    types:{
+      痰湿:{ note:"体が重くて冷えを伴うむくみ。余分な水を排出し、胃腸を整える素材を使います。" },
+      陽虚:{ note:"冷えから来るむくみ。温めながら水の代謝をサポートするブレンドです。" },
+      瘀血:{ note:"血の巡りが悪いことによるむくみ。温めながら血と水の流れを同時に促します。" },
+      湿熱:{ note:"体がほてりながらむくむタイプ。熱を冷まし湿を排出する素材を組み合わせます。" },
+    }
+  },
+  stomach:{
+    label:"胃腸の不調", icon:"🌿",
+    types:{
+      気虚:{ note:"胃腸が弱く消化力が低いタイプ。脾胃を温め、気を補う素材を中心に。" },
+      気滞:{ note:"ストレスで胃腸が張るタイプ。気の流れを整え、張りをほぐす素材を使います。" },
+      陽虚:{ note:"冷えると悪化する胃腸の弱さ。温める力を補いながら消化をサポートします。" },
+      湿熱:{ note:"食べ過ぎや脂っこいものの摂りすぎによる胃腸の詰まり。熱と湿を排出します。" },
+    }
+  },
+  eyes:{
+    label:"目の疲れ", icon:"👁",
+    types:{
+      血虚:{ note:"血が足りないと目に栄養が届きにくくなります。補血の代表ブレンドが有効とされています。" },
+      陰虚:{ note:"目が乾く・ドライアイ傾向は陰虚。潤いを補いながら目をいたわります。" },
+      肝:{ note:"中医学では「肝は目に開竅する」とされます。クコ・菊花の組み合わせが伝統的に用いられてきました。", useType:"血虚" },
+      気滞:{ note:"目の奥の痛み・眉間の張りを伴う方は気滞傾向。気の流れを整えます。" },
+    }
+  },
+  skin:{
+    label:"美容・肌荒れ", icon:"✨",
+    types:{
+      血虚:{ note:"肌の乾燥・くすみ・ツヤのなさは血虚のサイン。血を補い潤いを届けます。" },
+      陰虚:{ note:"乾燥肌・細かいシワは陰虚傾向。潤いを補い肌をしっとりさせます。" },
+      瘀血:{ note:"シミ・くすみ・クマは瘀血のサイン。血の巡りを促すことで肌色が明るくなるとされています。" },
+      湿熱:{ note:"ニキビ・吹き出物・テカりは湿熱のサイン。熱を冷まし湿を排出する素材を使います。" },
+    }
+  },
+};
+
+// ══════════════════════════════════════════════
+// ③ 簡易体質チェック（悩みごとに3問）
+// ══════════════════════════════════════════════
+const simpleQuestions = {
+  sleep:[
+    { text:"眠れないのはどちらに近いですか？",
+      hint:"",
+      opts:[
+        { label:"夢が多い・途中で目が覚める・じんわり疲れている", type:"血虚" },
+        { label:"ほてりや寝汗で眠れない・口が渇く", type:"陰虚" },
+        { label:"考え事・不安・頭が冴えて眠れない", type:"気滞" },
+        { label:"疲れているのに眠れない・体が重だるい", type:"気虚" },
+      ]},
+    { text:"肌・顔色の状態はどちらに近いですか？",
+      hint:"",
+      opts:[
+        { label:"顔色が白い・くすんでいる・血色が悪い", type:"血虚" },
+        { label:"顔がほてりやすい・頬が赤い", type:"陰虚" },
+        { label:"表情が固い・眉間にシワが寄りやすい", type:"気滞" },
+        { label:"疲れた顔・目に力がない", type:"気虚" },
+      ]},
+    { text:"就寝前の状態はどちらに近いですか？",
+      hint:"",
+      opts:[
+        { label:"ぼんやりだるい・力が入らない", type:"血虚" },
+        { label:"体が熱い・足の裏がほてる", type:"陰虚" },
+        { label:"ついスマホを見てしまう・頭が止まらない", type:"気滞" },
+        { label:"早く寝たいのに眠れない・胃がもたれている", type:"気虚" },
+      ]},
+  ],
+  cold:[
+    { text:"冷えの程度と特徴はどちらに近いですか？",
+      hint:"",
+      opts:[
+        { label:"とにかく強い冷え・温めると非常に楽・寒がり", type:"陽虚" },
+        { label:"全身が冷える・疲れると特に冷える", type:"気虚" },
+        { label:"手足の末端だけ冷える・顔色が悪い", type:"血虚" },
+        { label:"上半身は熱いのに足だけ冷える", type:"瘀血" },
+      ]},
+    { text:"体型・消化の傾向はどちらに近いですか？",
+      hint:"",
+      opts:[
+        { label:"下痢しやすい・冷えると悪化する・水っぽい", type:"陽虚" },
+        { label:"胃もたれしやすい・疲れやすい", type:"気虚" },
+        { label:"食欲はあるが消化が遅い感じ", type:"血虚" },
+        { label:"お腹が張る・便秘と下痢を繰り返す", type:"瘀血" },
+      ]},
+    { text:"冷え以外で気になることはありますか？",
+      hint:"",
+      opts:[
+        { label:"頻尿・夜間尿・腰がだるい", type:"陽虚" },
+        { label:"疲れやすい・免疫が落ちやすい", type:"気虚" },
+        { label:"めまい・立ちくらみ・目が疲れやすい", type:"血虚" },
+        { label:"肩こり・頭痛・シミが気になる", type:"瘀血" },
+      ]},
+  ],
+  tired:[
+    { text:"疲れの質はどちらに近いですか？",
+      hint:"",
+      opts:[
+        { label:"朝から疲れている・動くと疲れが増す", type:"気虚" },
+        { label:"冷えを伴う疲れ・温まると楽になる", type:"陽虚" },
+        { label:"めまい・立ちくらみを伴う疲れ", type:"血虚" },
+        { label:"ほてりや口の渇きを伴う疲れ", type:"陰虚" },
+      ]},
+    { text:"睡眠の状態はどちらに近いですか？",
+      hint:"",
+      opts:[
+        { label:"寝ても疲れが取れない・日中も眠い", type:"気虚" },
+        { label:"冷えて眠れない・寝起きが特につらい", type:"陽虚" },
+        { label:"夢が多い・浅い眠り", type:"血虚" },
+        { label:"ほてりで眠れない・寝汗をかく", type:"陰虚" },
+      ]},
+    { text:"疲れたときに特に感じることは？",
+      hint:"",
+      opts:[
+        { label:"食欲がなくなる・胃がもたれる", type:"気虚" },
+        { label:"全身が冷えてくる・ぞくぞくする", type:"陽虚" },
+        { label:"目がかすむ・頭がぼんやりする", type:"血虚" },
+        { label:"のどが渇く・手のひらがほてる", type:"陰虚" },
+      ]},
+  ],
+  stress:[
+    { text:"ストレスのかかり方はどちらに近いですか？",
+      hint:"",
+      opts:[
+        { label:"イライラ・怒りっぽい・胸がつかえる", type:"気滞" },
+        { label:"不安感・くよくよ・ため込みがち", type:"血虚" },
+        { label:"ほてりを伴うイライラ・不眠になる", type:"陰虚" },
+        { label:"肩こりや頭痛を伴うストレス", type:"瘀血" },
+      ]},
+    { text:"お腹の状態はどちらに近いですか？",
+      hint:"",
+      opts:[
+        { label:"お腹が張る・ガスが多い・げっぷが出やすい", type:"気滞" },
+        { label:"食欲にムラがある・甘いものが欲しくなる", type:"血虚" },
+        { label:"便秘がち・口が渇く", type:"陰虚" },
+        { label:"季肋部（脇腹）が張る感じがある", type:"瘀血" },
+      ]},
+    { text:"ストレスがたまると体に出やすいことは？",
+      hint:"",
+      opts:[
+        { label:"喉に何か詰まった感じ・溜め息が出やすい", type:"気滞" },
+        { label:"夢が増える・ドキドキする", type:"血虚" },
+        { label:"顔がほてる・口内炎ができやすい", type:"陰虚" },
+        { label:"肩こり・頭痛・生理痛が悪化する", type:"瘀血" },
+      ]},
+  ],
+  swelling:[
+    { text:"むくみの特徴はどちらに近いですか？",
+      hint:"",
+      opts:[
+        { label:"体が重だるい・冷えを伴うむくみ", type:"痰湿" },
+        { label:"強い冷えを伴うむくみ・尿が多い", type:"陽虚" },
+        { label:"肩こりや頭痛を伴うむくみ", type:"瘀血" },
+        { label:"体がほてりながらむくむ・肌が赤い", type:"湿熱" },
+      ]},
+    { text:"体型・肌の傾向はどちらに近いですか？",
+      hint:"",
+      opts:[
+        { label:"太りやすい・水太り・肌がべたつく", type:"痰湿" },
+        { label:"冷えると顔色が青白くなる", type:"陽虚" },
+        { label:"目の下にクマ・シミが気になる", type:"瘀血" },
+        { label:"肌が赤い・ニキビが出やすい", type:"湿熱" },
+      ]},
+    { text:"むくみが悪化するのはどんなときですか？",
+      hint:"",
+      opts:[
+        { label:"雨の日・食べすぎたあと", type:"痰湿" },
+        { label:"冷えたとき・冬場", type:"陽虚" },
+        { label:"同じ姿勢が続いたとき・ストレスが続いたとき", type:"瘀血" },
+        { label:"辛いものや脂っこいものを食べたあと", type:"湿熱" },
+      ]},
+  ],
+  stomach:[
+    { text:"胃腸の不調はどちらに近いですか？",
+      hint:"",
+      opts:[
+        { label:"胃がもたれる・食欲がない・疲れやすい", type:"気虚" },
+        { label:"お腹が張る・ガスが多い・ストレスで悪化する", type:"気滞" },
+        { label:"冷えると悪化する・下痢しやすい", type:"陽虚" },
+        { label:"食べ過ぎ・脂っこいものの後に悪化する", type:"湿熱" },
+      ]},
+    { text:"便通の状態はどちらに近いですか？",
+      hint:"",
+      opts:[
+        { label:"軟便・下痢になりやすい", type:"気虚" },
+        { label:"便秘と下痢を繰り返す・お腹が張る", type:"気滞" },
+        { label:"冷えると下痢・水っぽい便", type:"陽虚" },
+        { label:"便が臭い・黄色い・べたつく", type:"湿熱" },
+      ]},
+    { text:"食事のパターンで当てはまるものは？",
+      hint:"",
+      opts:[
+        { label:"少量でお腹がいっぱいになる・消化が遅い", type:"気虚" },
+        { label:"食欲にムラがある・食べると胸がつかえる", type:"気滞" },
+        { label:"冷たいものを食べるとすぐ胃が痛くなる", type:"陽虚" },
+        { label:"食欲は旺盛だが食後に胃が重い", type:"湿熱" },
+      ]},
+  ],
+  eyes:[
+    { text:"目の疲れの特徴はどちらに近いですか？",
+      hint:"",
+      opts:[
+        { label:"目がかすむ・視力が落ちた感じ・眠りが浅い", type:"血虚" },
+        { label:"目が乾く・ドライアイ・充血しやすい", type:"陰虚" },
+        { label:"目の奥が痛い・眉間が張る・ストレスがある", type:"気滞" },
+        { label:"目の下にクマ・目が重だるい", type:"瘀血" },
+      ]},
+    { text:"目以外で気になる症状はありますか？",
+      hint:"",
+      opts:[
+        { label:"めまい・立ちくらみ・顔色が悪い", type:"血虚" },
+        { label:"口や喉が渇く・手足がほてる", type:"陰虚" },
+        { label:"肩こり・頭痛・イライラ", type:"気滞" },
+        { label:"頭痛・シミ・生理痛", type:"瘀血" },
+      ]},
+    { text:"生活習慣で当てはまるものは？",
+      hint:"",
+      opts:[
+        { label:"夜更かしが多い・スマホを長時間使う", type:"血虚" },
+        { label:"エアコンの風が直接当たる・夜更かし", type:"陰虚" },
+        { label:"ストレスが多い・PCを長時間使う", type:"気滞" },
+        { label:"長時間の同じ姿勢・運動不足", type:"瘀血" },
+      ]},
+  ],
+  skin:[
+    { text:"肌の悩みの特徴はどちらに近いですか？",
+      hint:"",
+      opts:[
+        { label:"乾燥・くすみ・ツヤがない・顔色が悪い", type:"血虚" },
+        { label:"細かい乾燥ジワ・口唇の乾燥・ドライ肌", type:"陰虚" },
+        { label:"シミ・くすみ・目の下のクマが目立つ", type:"瘀血" },
+        { label:"ニキビ・吹き出物・毛穴の黒ずみ・テカり", type:"湿熱" },
+      ]},
+    { text:"肌の状態が悪化するのはどんなときですか？",
+      hint:"",
+      opts:[
+        { label:"疲れたとき・睡眠不足のとき", type:"血虚" },
+        { label:"乾燥した季節・夜更かしが続くとき", type:"陰虚" },
+        { label:"ストレスが続くとき・生理前後", type:"瘀血" },
+        { label:"脂っこいものを食べたあと・蒸し暑い季節", type:"湿熱" },
+      ]},
+    { text:"体の状態で当てはまるものは？",
+      hint:"",
+      opts:[
+        { label:"冷えやすい・めまいや立ちくらみがある", type:"血虚" },
+        { label:"ほてりやすい・口が渇く・寝汗をかく", type:"陰虚" },
+        { label:"肩こり・頭痛・生理痛がある", type:"瘀血" },
+        { label:"口臭・体のベタつき・尿が濃い", type:"湿熱" },
+      ]},
+  ],
+};
+
+// ══════════════════════════════════════════════
+// ④ 14問フル診断
+// ══════════════════════════════════════════════
+const fullQuestions = [
+  { text:"普段の疲れ方はどちらに近いですか？", hint:"日常的な体力・エネルギーの感覚で選んでください",
+    opts:[
+      {l:"すぐに疲れる・だるさが取れない・やる気が出ない",s:{気虚:3}},
+      {l:"冷えが強い・温かい場所にいると楽・特に寒がりで疲れやすい",s:{陽虚:3}},
+      {l:"疲れると手足の裏がほてる・口が渇く感じがある",s:{陰虚:3}},
+      {l:"疲れよりもイライラやストレスの方が気になる",s:{気滞:3}},
+      {l:"特に疲れは感じない",s:{}},
+    ]},
+  { text:"顔色・肌の状態はどちらに近いですか？", hint:"鏡を見たときの印象や、周りから言われることも参考にしてください",
+    opts:[
+      {l:"顔色が白い・くすんでいる・血色が悪い",s:{血虚:3}},
+      {l:"顔が赤い・ほてりやすい・のぼせる",s:{陰虚:3}},
+      {l:"顔がテカる・ニキビや吹き出物が出やすい・口臭が気になる",s:{湿熱:3}},
+      {l:"目の下にクマができやすい・シミが気になる",s:{瘀血:3}},
+      {l:"顔がむくみやすい・肌がベタつく（でも熱くはない）",s:{痰湿:3}},
+    ]},
+  { text:"冷えについて当てはまるものは？", hint:"1年を通じた傾向で選んでください",
+    opts:[
+      {l:"強い冷えがある・寒さがとにかく苦手・温めると非常に楽になる",s:{陽虚:4}},
+      {l:"全身が冷える・手足が冷たい（でも極端ではない）",s:{気虚:3,血虚:2}},
+      {l:"手足の先や顔がほてる（冷えより熱の感覚）",s:{陰虚:3}},
+      {l:"上半身は熱いのに下半身・足先は冷える",s:{気滞:2,瘀血:2}},
+      {l:"あまり冷えは気にならない",s:{}},
+    ]},
+  { text:"睡眠の状態はどちらに近いですか？", hint:"最近1〜2ヶ月の傾向で選んでください",
+    opts:[
+      {l:"寝つきは良いが、夢が多い・途中で目が覚める",s:{血虚:3,陰虚:2}},
+      {l:"考え事・不安で寝つけない・眠りが浅い",s:{気滞:3,気虚:1}},
+      {l:"寝ても疲れが取れない・日中も眠い・体が重い",s:{気虚:2,陽虚:2,痰湿:2}},
+      {l:"熱くて眠れない・寝汗をかく",s:{陰虚:2,湿熱:2}},
+      {l:"寝つきも良く、目覚めも良い",s:{}},
+    ]},
+  { text:"お通じ・消化の状態はどちらに近いですか？", hint:"普段の傾向で最も近いものを選んでください",
+    opts:[
+      {l:"軟便・下痢になりやすい・冷えると悪化する",s:{気虚:2,陽虚:3}},
+      {l:"便秘がち・便が固い・口や喉が渇く",s:{陰虚:3,血虚:1}},
+      {l:"便が黄色い・臭いが強い・肛門周りに熱感がある",s:{湿熱:3}},
+      {l:"お腹が張る・ガスが多い・げっぷが出やすい",s:{気滞:3}},
+      {l:"特に気になることはない",s:{}},
+    ]},
+  { text:"気分・精神面で当てはまるものは？", hint:"",
+    opts:[
+      {l:"イライラしやすい・怒りっぽい・気分の浮き沈みが激しい",s:{気滞:3}},
+      {l:"不安感が強い・くよくよしやすい・ため込みがち",s:{気虚:2,血虚:2}},
+      {l:"気分が落ち込みやすい・やる気が湧きにくい",s:{気虚:3}},
+      {l:"精神的に安定している",s:{}},
+    ]},
+  { text:"口の中・喉の状態はどちらに近いですか？", hint:"",
+    opts:[
+      {l:"口が渇く・喉が乾く・水をよく飲む",s:{陰虚:3}},
+      {l:"口の中がねばねばする・口臭・苦みを感じる",s:{湿熱:3}},
+      {l:"口の中がべたつく（でも苦みや熱感はない）",s:{痰湿:3}},
+      {l:"喉に何か詰まった感じがすることがある",s:{気滞:3}},
+      {l:"特に気にならない",s:{}},
+    ]},
+  { text:"舌を鏡で見てください。どちらに近いですか？", hint:"朝起きてすぐ、歯磨き前に確認するのがベストです",
+    opts:[
+      {l:"舌の色が薄い・白っぽい・全体的にふっくらしている",s:{気虚:2,陽虚:2,血虚:1}},
+      {l:"舌の色が非常に淡い・舌苔が薄白で水っぽい感じ",s:{陽虚:3}},
+      {l:"舌が赤い・舌苔が少ない・乾いた感じ",s:{陰虚:3}},
+      {l:"舌が赤く、黄色い苔がべったりついている",s:{湿熱:3}},
+      {l:"舌の色が暗い・紫がかっている・舌の裏の血管が目立つ",s:{瘀血:3}},
+      {l:"舌に白い苔がべったりついている（熱感はない）",s:{痰湿:3}},
+    ]},
+  { text:"むくみやすさについて当てはまるものは？", hint:"",
+    opts:[
+      {l:"顔・脚がむくみやすい・体が冷えて重だるい",s:{痰湿:3,陽虚:2}},
+      {l:"むくみ＋体がほてる・皮膚が赤い・熱感がある",s:{湿熱:3}},
+      {l:"むくみより乾燥の方が気になる（肌・目・口）",s:{陰虚:3,血虚:2}},
+      {l:"むくみはあまりないが、肩こりや頭痛がある",s:{瘀血:2,気滞:2}},
+      {l:"むくみはほとんどない",s:{}},
+    ]},
+  { text:"女性の方：生理について当てはまるものは？（男性・非該当の方は最後を選んでください）", hint:"",
+    opts:[
+      {l:"経血が少ない・生理が遅れやすい・色が薄い",s:{血虚:3}},
+      {l:"生理痛がひどい・経血に塊が混じる",s:{瘀血:3}},
+      {l:"PMSがひどい・生理前にイライラや胸の張りがある",s:{気滞:3}},
+      {l:"男性または生理は特に気にならない",s:{}},
+    ]},
+  { text:"体型・体重の傾向はどちらに近いですか？", hint:"",
+    opts:[
+      {l:"太りやすい・むくんでいる感じ・水太り気味",s:{痰湿:3}},
+      {l:"やせ型・体重が増えにくい・肌や髪が乾燥しやすい",s:{陰虚:2,血虚:2}},
+      {l:"体重は普通だが、肩こり・シミ・クマが気になる",s:{瘀血:3}},
+      {l:"体重は特に気にならない",s:{}},
+    ]},
+  { text:"つい手が伸びる食べ物・飲み物はどちらに近いですか？", hint:"「体によいから食べている」ではなく「なんとなく欲しくなる」ものを選んでください",
+    opts:[
+      {l:"温かいもの・生姜入り料理・カレーなど体が温まるもの",s:{陽虚:3}},
+      {l:"甘いもの・白米・パン・うどんなど消化しやすいほっこりするもの",s:{気虚:3}},
+      {l:"アイスや冷たい飲み物・果物・さっぱりしたもの",s:{湿熱:2,陰虚:1}},
+      {l:"柑橘類・ハーブティー・香りの強いもの・少量のお酒",s:{気滞:3}},
+      {l:"味の濃いもの・塩辛いもの・脂っこいもの",s:{瘀血:2,痰湿:2}},
+      {l:"特に偏りはなく何でも食べる",s:{}},
+    ]},
+  { text:"好きな食べ物（食の傾向）はどちらに近いですか？", hint:"",
+    opts:[
+      {l:"黒いもの（黒ごま・黒豆・海藻）が好き",s:{腎:2,血虚:1}},
+      {l:"酸っぱいもの・柑橘・梅干しが好き",s:{気滞:2}},
+      {l:"苦いもの（ゴーヤ・コーヒー）が好き",s:{湿熱:2}},
+      {l:"辛いもの（生姜・ニンニク）が好き",s:{陽虚:2}},
+      {l:"特に偏りなし",s:{}},
+    ]},
+  { text:"薬膳茶を通じて、どんな自分になりたいですか？", hint:"体質の判定には直接関係しませんが、あなたのブレンド提案をより的確にするために教えてください",
+    opts:[
+      {l:"毎日エネルギッシュに動ける・疲れにくい体になりたい",s:{気虚:2}},
+      {l:"冷えのない・ぽかぽか温かい体になりたい",s:{陽虚:2}},
+      {l:"ぐっすり眠れる・肌つやよく過ごしたい",s:{血虚:2}},
+      {l:"ほてりや乾燥のない・しっとりした体になりたい",s:{陰虚:2}},
+      {l:"ストレスに強く・気持ちが穏やかでいたい",s:{気滞:2}},
+      {l:"すっきりむくみのない・軽やかな体になりたい",s:{瘀血:1,痰湿:1}},
+    ]},
+  { text:"今はどの季節ですか？", hint:"中医学では季節によって弱りやすい臓が変わります。体質に季節の養生を重ねることで、より的確なブレンドをご提案できます",
+    opts:[
+      {l:"春（3〜5月）",s:{}},
+      {l:"夏（6月〜8月）",s:{}},
+      {l:"長夏・梅雨（6〜7月）",s:{}},
+      {l:"秋（9〜11月）",s:{}},
+      {l:"冬（12〜2月）",s:{}},
+    ]},
+];
+
+// ══════════════════════════════════════════════
+// ⑤ 季節データ（五季 × 養生）
+// ══════════════════════════════════════════════
+// 中医学では季節は「体質判断の主軸」ではなく「処方の味付け」。
+// 体質が決まった後に重ねることで、今この季節に特に必要なブレンドの調整を示す。
+
+const seasons = {
+  春: {
+    icon:"🌸", color:"#5a8a3a",
+    organ:"肝", theme:"疏肝・理気",
+    kanji:"春は肝を養う季節",
+    desc:"春は五臓の「肝」に負担がかかりやすい季節とされています。気が上昇しやすく、イライラ・目の疲れ・頭痛・めまいが起きやすくなります。気の巡りをほぐし、肝を養う素材を加えることが春の養生の基本です。",
+    ingr:[
+      {n:"マイカイ花",r:"気の巡りをほぐす"},
+      {n:"菊花",r:"肝の熱を冷ます"},
+      {n:"陳皮",r:"気滞を解消する"},
+      {n:"クコの実",r:"肝・腎を補う"},
+    ],
+    note:"春の養生テーマは「疏肝理気（気の巡りをほぐす）」。香りのある素材を少量加えると春向けのブレンドになります。また春は「酸味」が肝を養うとされ、梅やレモンを少し加えるのも伝統的な工夫です。",
+    bodyCheck:"今の体に「気が上にのぼる感覚・頭痛・イライラ・目の充血」がある場合は、菊花を多めに加えて熱を冷ますことが有効とされています。",
+  },
+  夏: {
+    icon:"☀️", color:"#c46020",
+    organ:"心", theme:"清熱・養心",
+    kanji:"夏は心を養う季節",
+    desc:"夏は五臓の「心」に負担がかかりやすい季節とされています。暑邪（熱）が体内に入りやすく、動悸・ほてり・不眠・口の渇きが起きやすくなります。熱を冷まし、心を静める素材が夏の養生の核心です。",
+    ingr:[
+      {n:"菊花",r:"清熱・心を静める"},
+      {n:"ゆり根",r:"心を潤す・不眠に"},
+      {n:"ハスの実",r:"心を落ち着かせる"},
+      {n:"緑豆",r:"解毒・清熱の代表"},
+    ],
+    note:"夏の養生テーマは「清熱養心（熱を冷まし心を養う）」。ただし体を冷やしすぎることに注意。冷たいものの摂りすぎは脾胃を傷めます。温かいお茶でゆっくり清熱するのが中医学の考え方です。",
+    bodyCheck:"「汗が多い・喉が渇く・心臓がドキドキする」場合は、ゆり根・ハスの実を加えて心を潤すことが有効とされています。",
+  },
+  長夏: {
+    icon:"🌧", color:"#8a7020",
+    organ:"脾", theme:"健脾・利湿",
+    kanji:"長夏は脾を養う季節",
+    desc:"梅雨〜夏の終わりにかけての「長夏」は、五臓の「脾（消化機能）」に負担がかかりやすい季節です。湿気が体に溜まりやすく、胃腸の不調・むくみ・体の重だるさ・食欲不振が起きやすくなります。湿を排出し脾を整える素材が長夏の養生の基本です。",
+    ingr:[
+      {n:"ハトムギ",r:"利湿の代表素材"},
+      {n:"陳皮",r:"脾胃を整え気を巡らす"},
+      {n:"生姜",r:"脾胃を温め湿を散らす"},
+      {n:"とうもろこしの髭",r:"利尿・水分代謝を助ける"},
+    ],
+    note:"長夏の養生テーマは「健脾利湿（脾を強め湿を排出）」。甘いもの・脂っこいもの・冷たいものは脾を傷め湿を増やすとされます。食事を規則正しくし、温かいものを食べることが最大の養生です。",
+    bodyCheck:"「雨の日に体が重い・食欲がわかない・むくむ」場合は、ハトムギを基本ブレンドに追加することが有効とされています。",
+  },
+  秋: {
+    icon:"🍂", color:"#b05020",
+    organ:"肺", theme:"滋陰・潤肺",
+    kanji:"秋は肺を養う季節",
+    desc:"秋は五臓の「肺」に負担がかかりやすい季節です。乾燥邪が体に影響しやすく、空咳・肌の乾燥・鼻の乾燥・喉の不調が起きやすくなります。肺と皮膚に潤いを補う「白い食材」が秋の養生の核心とされています。",
+    ingr:[
+      {n:"白きくらげ",r:"肺・胃を潤す代表素材"},
+      {n:"麦門冬",r:"肺・心を潤す"},
+      {n:"ゆり根",r:"肺の乾燥をいたわる"},
+      {n:"クコの実",r:"陰を補い潤す"},
+    ],
+    note:"秋の養生テーマは「滋陰潤肺（陰を補い肺を潤す）」。白い食材（白きくらげ・れんこん・百合根・梨・白ごま）が肺を潤すとされています。辛いもの・乾燥した環境・夜更かしは肺の陰を消耗します。",
+    bodyCheck:"「空咳が出る・肌がかさかさ・喉が乾く」場合は、白きくらげや麦門冬をブレンドに加えることが有効とされています。",
+  },
+  冬: {
+    icon:"❄️", color:"#2060a0",
+    organ:"腎", theme:"補腎・温陽",
+    kanji:"冬は腎を養う季節",
+    desc:"冬は五臓の「腎」に負担がかかりやすい季節です。寒邪が体に入りやすく、冷え・腰痛・頻尿・老化感・気力の低下が起きやすくなります。腎を補い体を温める素材が冬の養生の基本とされています。",
+    ingr:[
+      {n:"黒豆",r:"腎を補う代表素材"},
+      {n:"クコの実",r:"腎・肝の陰を補う"},
+      {n:"生姜（乾燥）",r:"腎陽を温める"},
+      {n:"桂皮",r:"腎を温め血行を促す"},
+    ],
+    note:"冬の養生テーマは「補腎温陽（腎を補い陽気を温める）」。「黒い食材（黒豆・黒ごま・海藻）は腎を養う」という言い伝えは中医学の五行（水＝黒＝腎）に基づいています。冬こそ早寝・腹と腰を冷やさないことが最大の腎の養生です。",
+    bodyCheck:"「腰がだるい・足腰が冷える・夜中にトイレで起きる」場合は、黒豆・クコを多めにしたブレンドが特に向いているとされています。",
+  },
+};
+
+// 季節キーの変換（質問の選択肢テキスト → seasonキー）
+const seasonKeyMap = {
+  '春（3〜5月）':  '春',
+  '夏（6月〜8月）': '夏',
+  '長夏・梅雨（6〜7月）': '長夏',
+  '秋（9〜11月）': '秋',
+  '冬（12〜2月）': '冬',
+};
+
+// ══════════════════════════════════════════════
+// ⑥ State
+// ══════════════════════════════════════════════
+let currentScreen = 'top';
+let selectedConcern = null;
+let sqAnswers = [];
+let sqStep = 0;
+let fullAnswers = [];
+let fullStep = 0;
+let fullScores = {気虚:0,陽虚:0,血虚:0,陰虚:0,気滞:0,瘀血:0,湿熱:0,痰湿:0};
+
+// ══════════════════════════════════════════════
+// ⑥ 画面制御
+// ══════════════════════════════════════════════
+function showScreen(id){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  if(id === 'top'){
+    document.getElementById('topNav').style.display='';
+    currentScreen='top';
+  } else {
+    document.getElementById('topNav').style.display='none';
+    document.getElementById(id).classList.add('active');
+    currentScreen=id;
+  }
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function backToTop(){ showScreen('top'); }
+
+// ══════════════════════════════════════════════
+// ⑦ Screen A: お悩みフロー
+// ══════════════════════════════════════════════
+function selectConcern(key){
+  selectedConcern = key;
+  sqAnswers = [];
+  sqStep = 0;
+  document.querySelectorAll('.concern-btn').forEach(b=>b.classList.remove('selected'));
+  event.currentTarget.classList.add('selected');
+  const cd = concernBlends[key];
+  document.getElementById('concernTitle').textContent = cd.label + 'でお悩みの方へ';
+  document.getElementById('stepA1').style.display='none';
+  document.getElementById('stepA2').style.display='';
+  renderSQ();
+}
+
+function backToConcerns(){
+  document.getElementById('stepA1').style.display='';
+  document.getElementById('stepA2').style.display='none';
+}
+
+function renderSQ(){
+  // 4問目（index=3）は季節質問
+  const isSeasonQ = (sqStep === 3);
+  const q = isSeasonQ ? seasonQuestion : simpleQuestions[selectedConcern][sqStep];
+  document.getElementById('sqProg').textContent = `質問 ${sqStep+1} / 4`;
+  document.getElementById('sqText').textContent = q.text;
+  document.getElementById('sqHint').textContent = q.hint;
+  const wrap = document.getElementById('sqOpts');
+  wrap.innerHTML='';
+  q.opts.forEach((opt,i)=>{
+    const btn = document.createElement('button');
+    btn.className = 'sq-opt' + (sqAnswers[sqStep]===i?' sel':'');
+    btn.innerHTML = `<span class="sq-check">${sqAnswers[sqStep]===i?'✓':''}</span><span>${opt.label}</span>`;
+    btn.onclick = ()=>selectSQ(i);
+    wrap.appendChild(btn);
+  });
+}
+
+function selectSQ(idx){
+  sqAnswers[sqStep] = idx;
+  renderSQ();
+  setTimeout(()=>{
+    if(sqStep < 3){
+      sqStep++;
+      renderSQ();
+    } else {
+      showConcernResult();
+    }
+  }, 300);
+}
+
+// 季節質問（簡易診断の4問目として共通で使う）
+const seasonQuestion = {
+  text:"今はどの季節ですか？",
+  hint:"体質に季節の養生を重ねてより的確なブレンドをご提案します",
+  opts:[
+    {label:"春（3〜5月）", type:"__season__", season:"春"},
+    {label:"夏（6月〜8月）", type:"__season__", season:"夏"},
+    {label:"長夏・梅雨（6〜7月）", type:"__season__", season:"長夏"},
+    {label:"秋（9〜11月）", type:"__season__", season:"秋"},
+    {label:"冬（12〜2月）", type:"__season__", season:"冬"},
+  ]
+};
+
+function showConcernResult(){
+  // 最初の3問から体質タイプを集計
+  const qs = simpleQuestions[selectedConcern];
+  const typeCounts = {};
+  sqAnswers.slice(0,3).forEach((ans,qi)=>{
+    if(ans===undefined) return;
+    const t = qs[qi].opts[ans].type;
+    typeCounts[t] = (typeCounts[t]||0) + 1;
+  });
+  // 4問目（季節）を取得
+  const seasonIdx = sqAnswers[3];
+  const selectedSeason = seasonIdx !== undefined ? seasonQuestion.opts[seasonIdx].season : null;
+
+  // 最多タイプを選ぶ
+  let topType = Object.entries(typeCounts).sort((a,b)=>b[1]-a[1])[0]?.[0];
+  // concernBlendsの対応タイプにない場合は最初のタイプを使う
+  const cd = concernBlends[selectedConcern];
+  if(!topType || !cd.types[topType]){
+    topType = Object.keys(cd.types)[0];
+  }
+  // useTypeが設定されている場合は差し替え
+  const blend = cd.types[topType];
+  const actualType = blend.useType || topType;
+  const typeData = types[actualType];
+
+  // バッジに悩み×体質を表示
+  document.getElementById('rBadge').textContent = `${cd.icon} ${cd.label} × ${typeData.name}（${typeData.read}）`;
+  document.getElementById('rTitle').innerHTML = `あなたは<span>${typeData.tag}</span>`;
+  document.getElementById('rPoem').innerHTML = typeData.poem.replace(/\n/g,'<br>');
+  document.getElementById('rDesc').innerHTML =
+    `<strong style="color:var(--gold);font-size:12px;letter-spacing:.15em;display:block;margin-bottom:8px;">● ${cd.label}との関係</strong>`
+    + blend.note + '<br><br>' + typeData.desc;
+
+  // スコア非表示（簡易診断は点数なし）
+  document.getElementById('rScores').style.display='none';
+  // 体質診断への誘導ボタンを変更
+  document.querySelector('#screenR .btn-row .btn-primary').textContent='体質診断もやってみる →';
+
+  // Tips・レシピ
+  renderTips(typeData.tips);
+  renderRecipe(typeData.recipe);
+  // 季節養生ボックス
+  renderSeasonBox(selectedSeason, actualType);
+
+  // 結果画面の戻るリンクをお悩みに
+  document.getElementById('backFromResult').onclick = ()=>{ showScreen('screenA'); };
+
+  showScreen('screenR');
+}
+
+// ══════════════════════════════════════════════
+// ⑧ Screen B: フル体質診断
+// ══════════════════════════════════════════════
+function resetFullQuiz(){
+  fullAnswers = [];
+  fullStep = 0;
+  fullScores = {気虚:0,陽虚:0,血虚:0,陰虚:0,気滞:0,瘀血:0,湿熱:0,痰湿:0};
+  renderFullQ();
+}
+
+function renderFullQ(){
+  const q = fullQuestions[fullStep];
+  const total = fullQuestions.length;
+  document.getElementById('qProg').textContent = `質問 ${fullStep+1} / ${total}`;
+  document.getElementById('qProgFill').style.width = `${((fullStep+1)/total)*100}%`;
+  document.getElementById('qText').textContent = q.text;
+  document.getElementById('qHint').textContent = q.hint;
+  const wrap = document.getElementById('qOpts');
+  wrap.innerHTML='';
+  q.opts.forEach((opt,i)=>{
+    const btn=document.createElement('button');
+    btn.className='opt-btn'+(fullAnswers[fullStep]===i?' sel':'');
+    btn.innerHTML=`<span class="opt-chk">${fullAnswers[fullStep]===i?'✓':''}</span><span>${opt.l}</span>`;
+    btn.onclick=()=>selectFullOpt(i);
+    wrap.appendChild(btn);
+  });
+  document.getElementById('btnPrev').style.display = fullStep===0?'none':'';
+  document.getElementById('btnNext').style.display = fullAnswers[fullStep]!==undefined?'':'none';
+}
+
+function selectFullOpt(idx){
+  fullAnswers[fullStep]=idx;
+  renderFullQ();
+  setTimeout(()=>{
+    if(fullStep < fullQuestions.length-1){ fullStep++; renderFullQ(); }
+    else { showFullResult(); }
+  }, 300);
+}
+
+function prevQ(){ if(fullStep>0){ fullStep--; renderFullQ(); } }
+function nextQ(){
+  if(fullAnswers[fullStep]===undefined) return;
+  if(fullStep<fullQuestions.length-1){ fullStep++; renderFullQ(); }
+  else { showFullResult(); }
+}
+
+function showFullResult(){
+  const s={気虚:0,陽虚:0,血虚:0,陰虚:0,気滞:0,瘀血:0,湿熱:0,痰湿:0};
+  // 最後の1問（季節）はスコア計算から除外し別途取得
+  const seasonQIndex = fullQuestions.length - 1;
+  fullAnswers.forEach((ans,qi)=>{
+    if(ans===undefined || qi===seasonQIndex) return;
+    const sc = fullQuestions[qi].opts[ans].s;
+    Object.entries(sc).forEach(([k,v])=>{ if(s[k]!==undefined) s[k]+=v; });
+  });
+  // 季節を取得
+  const seasonAns = fullAnswers[seasonQIndex];
+  const seasonLabel = seasonAns !== undefined ? fullQuestions[seasonQIndex].opts[seasonAns].l : null;
+  const selectedSeason = seasonLabel ? seasonKeyMap[seasonLabel] : null;
+
+  const sorted=Object.entries(s).sort((a,b)=>b[1]-a[1]);
+  const topType=sorted[0][0];
+  const c=types[topType];
+
+  document.getElementById('rBadge').textContent=`${c.name}（${c.read}）タイプ`;
+  document.getElementById('rTitle').innerHTML=`あなたは<span>${c.tag}</span>`;
+  document.getElementById('rPoem').innerHTML=c.poem.replace(/\n/g,'<br>');
+  document.getElementById('rDesc').textContent=c.desc;
+
+  // スコア表示
+  const maxS=sorted[0][1]||1;
+  document.getElementById('rScores').style.display='';
+  document.getElementById('scoresDisplay').innerHTML=sorted.map(([t,sc])=>`
+    <div class="score-row">
+      <div class="score-lbl">${t}（${types[t].read}）</div>
+      <div class="score-bar-wrap"><div class="score-bar" style="width:0" data-w="${Math.round(sc/maxS*100)}%"></div></div>
+      <div class="score-pt">${sc}pt</div>
+    </div>`).join('');
+  setTimeout(()=>{
+    document.querySelectorAll('.score-bar').forEach(b=>b.style.width=b.dataset.w);
+  },200);
+
+  renderTips(c.tips);
+  renderRecipe(c.recipe);
+  renderSeasonBox(selectedSeason, topType);
+
+  document.getElementById('backFromResult').onclick=()=>{ showScreen('screenB'); resetFullQuiz(); };
+  document.querySelector('#screenR .btn-row .btn-primary').textContent='お悩みから探す →';
+  document.querySelector('#screenR .btn-row .btn-primary').onclick=()=>showScreen('screenA');
+
+  showScreen('screenR');
+}
+
+// ══════════════════════════════════════════════
+// ⑨ 共通：Tips・レシピ・季節ボックス描画
+// ══════════════════════════════════════════════
+
+function renderSeasonBox(seasonKey, typeKey){
+  const box = document.getElementById('rSeasonBox');
+  if(!seasonKey || !seasons[seasonKey]){
+    box.style.display='none';
+    return;
+  }
+  const sd = seasons[seasonKey];
+  const typeData = types[typeKey];
+
+  // 体質と季節の重なりを分析して「今特に注意すること」を生成
+  const crossNote = buildCrossNote(seasonKey, typeKey);
+
+  box.style.display='';
+  box.style.setProperty('--season-color', sd.color);
+  document.getElementById('rSeasonLabel').innerHTML =
+    `<span style="color:${sd.color}">${sd.icon} 今の季節の養生</span>`;
+  document.getElementById('rSeasonTitle').textContent =
+    `${seasonKey}は「${sd.organ}」をいたわる季節です`;
+  document.getElementById('rSeasonKanji').textContent = sd.kanji;
+  document.getElementById('rSeasonTheme').textContent = sd.desc;
+  document.getElementById('rSeasonIngr').innerHTML = sd.ingr.map(i=>`
+    <div class="season-ingr-tag">${i.n}<span>${i.r}</span></div>`).join('');
+  document.getElementById('rSeasonNote').innerHTML =
+    `<strong style="display:block;margin-bottom:4px;font-size:11px;letter-spacing:.15em;">◎ あなた（${typeData.name}）× ${seasonKey}の養生ポイント</strong>`
+    + crossNote + '<br><br>'
+    + `<em style="font-size:11px;color:var(--muted);">${sd.bodyCheck}</em>`;
+}
+
+// 体質×季節の交差コメントを生成
+function buildCrossNote(season, type){
+  const notes = {
+    '春': {
+      '気虚':'春は肝が働きすぎて脾を傷めやすい季節です。気虚の方は特に胃腸が消耗しやすいため、陳皮・生姜で脾を守りながら気を補うブレンドが向いています。',
+      '陽虚':'春の陽気の上昇に乗って体を温め直す好機です。生姜・桂皮に加えてマイカイ花を少量足すと、温めながら気の巡りも整えられます。',
+      '血虚':'春は肝の血が消耗しやすい季節。血虚の方はクコ・なつめを多めにして肝血を養うことが特に重要です。',
+      '陰虚':'春の風邪（ふうじゃ）は陰を消耗します。陰虚の方は菊花・クコで肝の熱を冷ましながら潤いを補いましょう。',
+      '気滞':'春は最も気滞が悪化しやすい季節です。マイカイ花・陳皮を中心にしたブレンドで、気の流れを積極的にほぐすことが重要です。',
+      '瘀血':'春は気が動き出す季節。瘀血の方には血の巡りを促す絶好の時期です。マイカイ花・黒豆を積極的に使いましょう。',
+      '湿熱':'春の湿気が体内の湿熱を悪化させやすい季節です。菊花・ハトムギで清熱利湿を続けることが重要です。',
+      '痰湿':'春は体の中の余分な湿を一掃するチャンスです。ハトムギを多めにして、しっかり体を動かして汗をかくことを心がけて。',
+    },
+    '夏': {
+      '気虚':'夏の発汗が気をさらに消耗させます。なつめ・クコで気を補いながら、水分補給をこまめに行うことが重要です。',
+      '陽虚':'「冬病夏治」という言葉の通り、夏こそ陽虚を治す好機です。温かい生姜茶を続けることで冬の冷えに備えましょう。',
+      '血虚':'夏の暑さで心が消耗しやすいため、ゆり根・なつめで心と血を同時に養うブレンドが夏の血虚に向いています。',
+      '陰虚':'夏は陰虚が最も悪化しやすい季節です。クコ・麦門冬・ゆり根で積極的に潤いを補い、冷やしすぎ・汗かきすぎを避けましょう。',
+      '気滞':'夏の暑さはイライラを増幅させます。ハスの実・菊花で心を静めながら気の流れを整えるブレンドが夏の気滞に向いています。',
+      '瘀血':'夏は汗とともに血の流れが促されやすい季節。ただし水分不足は瘀血を悪化させます。十分な水分補給とともにマイカイ花を使いましょう。',
+      '湿熱':'夏は湿熱が最も高まる季節です。菊花・緑豆・薄荷で積極的に清熱利湿を行うことが最重要です。冷やしすぎには注意。',
+      '痰湿':'夏の高温多湿は痰湿を悪化させます。ハトムギ・とうもろこしの髭を多めにして水の排出を促しましょう。',
+    },
+    '長夏': {
+      '気虚':'長夏は気虚の方が最も注意すべき季節です。脾（消化機能）を傷めやすいため、陳皮・生姜で胃腸を守ることを最優先に。',
+      '陽虚':'梅雨の湿気が陽気をさらに消耗させます。生姜・桂皮で体を温めながら、湿を排出する素材も加えましょう。',
+      '血虚':'湿邪は血の運行を妨げます。ハトムギで湿を排出しながら、なつめで血を補うバランスが長夏の血虚に向いています。',
+      '陰虚':'長夏の湿熱は陰虚に重なりやすい状態です。ハトムギで湿を排出しながら、クコで陰を補う組み合わせが有効とされています。',
+      '気滞':'梅雨のどんよりした天気は気滞を悪化させます。陳皮・マイカイ花の香りで気の流れを積極的にほぐしましょう。',
+      '瘀血':'湿が血の流れを妨げやすい季節です。水の巡りを整えながら血の流れも促すマイカイ花・生姜の組み合わせを活用しましょう。',
+      '湿熱':'長夏は湿熱タイプに最も負担が大きい季節です。ハトムギ・どくだみ・菊花で徹底的に清熱利湿を行うことが重要です。',
+      '痰湿':'長夏は痰湿タイプが最も悪化しやすい季節です。ハトムギを多めにし、食事量を控えめにして脾胃を休ませることが大切です。',
+    },
+    '秋': {
+      '気虚':'秋の乾燥は肺を通じて気を消耗させます。なつめ・陳皮で気を補いながら、白きくらげで肺を潤す素材も加えると秋向けになります。',
+      '陽虚':'秋から冬への移行期は陽虚が悪化しやすい時期です。生姜・桂皮で温めを強化しながら、腎の養生も意識し始めましょう。',
+      '血虚':'秋は血虚が肌荒れとして現れやすい季節です。なつめ・クコに白きくらげを加えて、血と潤いを同時に補いましょう。',
+      '陰虚':'秋の乾燥は陰虚を最も悪化させる季節です。白きくらげ・麦門冬・クコを積極的に使い、潤いを集中的に補いましょう。',
+      '気滞':'秋の憂いは気滞を悪化させます。マイカイ花の香りで気を動かしながら、肺を潤す素材もブレンドに加えましょう。',
+      '瘀血':'秋の乾燥は血液を粘らせやすくします。水分補給をしっかり行い、マイカイ花・黒豆で血の流れを維持しましょう。',
+      '湿熱':'秋は湿熱が落ち着く季節。乾燥対策にシフトしながら、残った熱を菊花でゆっくりおさめていく移行期のブレンドを心がけて。',
+      '痰湿':'秋の乾燥でブレンドを少し変えましょう。ハトムギを続けながら白きくらげを少量加えて、潤いも補いつつ湿を排出するバランスが秋向きです。',
+    },
+    '冬': {
+      '気虚':'冬は気虚の方が最も消耗しやすい季節です。なつめ・生姜で胃腸を守り、無理をしないことが最大の養生です。',
+      '陽虚':'冬は陽虚の本番。生姜・桂皮・黒豆で腎陽を補い、腹と腰を温めることが何より重要です。早寝を心がけて陽気を蓄えましょう。',
+      '血虚':'冬は腎が弱りやすく、腎は血を生む源とされています。クコ・黒豆・なつめで腎と血を同時に養う冬向けのブレンドが効果的です。',
+      '陰虚':'冬は暖房で室内が乾燥し、陰虚を悪化させやすい季節です。クコ・麦門冬・白きくらげで積極的に潤いを補い続けましょう。',
+      '気滞':'冬は動きが少なくなり気滞が悪化しやすい季節です。マイカイ花・陳皮に生姜を加えて温めながら気を動かすブレンドが冬の気滞に向いています。',
+      '瘀血':'冬の寒さは血の流れを最も滞らせます。生姜・桂皮で温めながらマイカイ花で血の流れを促す組み合わせが冬の瘀血に特に有効です。',
+      '湿熱':'冬は湿熱が和らぎやすい季節。体を冷やしすぎないよう注意しながら、湿熱の残りをゆっくりおさめていく時期です。',
+      '痰湿':'冬は代謝が落ちて痰湿が溜まりやすい季節です。生姜で体を温めながらハトムギ・黒豆で水の巡りを整えるブレンドが冬の痰湿に向いています。',
+    },
+  };
+  return notes[season]?.[type] || `${season}は${seasons[season].organ}に負担がかかりやすい季節です。基本のブレンドに${seasons[season].ingr[0].n}を加えることで、季節の養生をプラスできます。`;
+}
+
+function renderTips(tips){
+  document.getElementById('rTips').innerHTML=tips.map(t=>`
+    <div class="tip-item"><span class="tip-icon">${t.i}</span><span>${t.t}</span></div>`).join('');
+}
+
+function renderRecipe(r){
+  const ingrHtml=r.ingr.map(i=>`
+    <li class="ingr-item">
+      <span class="ingr-dot"></span>
+      <span class="ingr-name">${i.n}</span>
+      <span class="ingr-eff">${i.e}</span>
+      <span class="ingr-g">${i.g}</span>
+    </li>`).join('');
+  const stepsHtml=r.steps.map((s,i)=>`
+    <div class="brew-step"><span class="brew-num">${i+1}</span><span>${s}</span></div>`).join('');
+  document.getElementById('rRecipe').innerHTML=`
+    <div class="recipe-box">
+      <div class="recipe-head">
+        <div class="recipe-icon-wrap">${r.icon}</div>
+        <div>
+          <div class="recipe-name">${r.name}</div>
+          <div class="recipe-tag">水 ${r.water} / 1人分</div>
+        </div>
+      </div>
+      <div class="recipe-body">
+        <div class="recipe-why">${r.why}</div>
+        <div class="ingr-title">● ブレンド食材</div>
+        <ul class="ingr-list">${ingrHtml}</ul>
+        <div class="brew-wrap">
+          <div class="brew-title">◎ 作り方</div>
+          ${stepsHtml}
+        </div>
+        <div class="caution-box">${r.caution}</div>
+        <div class="medical-box"><strong>⚕ こんな場合は医療機関へ</strong>${r.medical}</div>
+      </div>
+    </div>`;
+}
+
+// ══════════════════════════════════════════════
+// ⑩ 食材辞典データ（20素材）
+// ══════════════════════════════════════════════
+const ingredients = [
+  { id:'natume', icon:'🌰', name:'なつめ', read:'大棗（たいそう）',
+    types:['気虚','血虚','陽虚'], seasons:['春','秋','冬'],
+    concerns:['疲れ','冷え','眠れない','美容'],
+    nature:'温', flavor:'甘', meridian:'脾・胃・心',
+    desc:'「1日3粒食べると歳を取らない」と言われる補気・補血の代表食材。気と血を同時に補い、脾胃（消化機能）を養います。なつめに含まれる鉄分と葉酸は赤血球の生成を助けます。',
+    how:'切り込みを入れて煮出すと成分が出やすくなります。そのまま食べても◎。甘みが強いので砂糖代わりにも。',
+    caution:'食べ過ぎは腹部膨満の原因になることがあります。1日3〜5粒が目安。',
+    blends:['補気・温養ブレンド','補血・安神ブレンド','温陽・補腎ブレンド'] },
+
+  { id:'kuko', icon:'🔴', name:'クコの実', read:'枸杞子（くこし）',
+    types:['血虚','陰虚','気虚'], seasons:['春','秋','冬'],
+    concerns:['目の疲れ','美容','疲れ','眠れない'],
+    nature:'平', flavor:'甘', meridian:'肝・腎・肺',
+    desc:'PubMedに多数の研究が収録されている薬膳の代表素材。ゼアキサンチン・クコ多糖（LBPs）・ベタインを含み、抗酸化・免疫調節・眼の栄養補給に伝統的に用いられてきました。肝・腎・肺の陰を補います。',
+    how:'そのまま食べても美味しい。煮出すほか、ヨーグルトやサラダにも使えます。',
+    caution:'消化器系が弱い方は少量から。外邪（風邪気味）のときは避けて。',
+    blends:['補血・安神ブレンド','滋陰・清熱ブレンド','補気・温養ブレンド'] },
+
+  { id:'kikuka', icon:'🌼', name:'菊花', read:'菊花（きくか）',
+    types:['陰虚','湿熱','気滞'], seasons:['春','夏'],
+    concerns:['目の疲れ','ストレス','美容'],
+    nature:'微寒', flavor:'甘・苦', meridian:'肝・肺',
+    desc:'ビタミンB1含有。肝の熱を冷まし、目の充血・視力低下をいたわるとされています。鎮静・抗炎症作用が伝統的に用いられてきました。クコの実と組み合わせた「クコ菊花茶」は中国で古来より愛飲されています。',
+    how:'煮出しすぎると香りと効果が落ちるため、最後に加えて2〜3分蒸らす方法がベスト。',
+    caution:'体を冷やす性質があるため、冷え性・下痢気味の方は少量に。',
+    blends:['滋陰・清熱ブレンド','理気・舒肝ブレンド','清熱・利湿ブレンド'] },
+
+  { id:'shoga', icon:'🫚', name:'生姜（乾燥）', read:'乾姜（かんきょう）',
+    types:['陽虚','気虚','痰湿'], seasons:['秋','冬'],
+    concerns:['冷え','胃腸','疲れ'],
+    nature:'熱', flavor:'辛', meridian:'脾・胃・心・肺',
+    desc:'乾燥させることで「温める力」が生の生姜より格段に高まります。脾胃を温め、吐き気を止め、発汗を促す作用があります。陽虚の最重要素材の一つ。体の芯から温める力があります。',
+    how:'スライスして煮出す。1回3〜5枚が目安。乾燥生姜は生生姜より温め効果が高い。',
+    caution:'熱性が強いため、ほてりやすい陰虚・湿熱の方は控えめに。妊娠初期は少量に。',
+    blends:['温陽・補腎ブレンド','補気・温養ブレンド','利水・健脾ブレンド'] },
+
+  { id:'chenpi', icon:'🍊', name:'陳皮', read:'陳皮（ちんぴ）',
+    types:['気滞','気虚','痰湿'], seasons:['春','長夏'],
+    concerns:['胃腸','ストレス','疲れ'],
+    nature:'温', flavor:'辛・苦', meridian:'脾・肺',
+    desc:'乾燥みかんの皮。気の巡りを整え、脾胃の機能を高めます。胃もたれ・食欲不振・お腹の張りに伝統的に使われてきました。爽やかな柑橘の香りがリラックス効果をもたらします。',
+    how:'煮出しても蒸らしでもOK。1〜2gが目安。みかんの皮を乾燥させて自作も可能。',
+    caution:'乾燥した咳がある方や陰虚の方は控えめに。',
+    blends:['補気・温養ブレンド','理気・舒肝ブレンド'] },
+
+  { id:'hatomugi', icon:'🌾', name:'ハトムギ（炒り）', read:'薏苡仁（よくいにん）',
+    types:['痰湿','湿熱'], seasons:['夏','長夏'],
+    concerns:['むくみ','美容','胃腸'],
+    nature:'微寒', flavor:'甘・淡', meridian:'脾・胃・肺',
+    desc:'体の湿（余分な水分）を排出する代表素材。肌の老廃物排出・むくみ解消に伝統的に使われてきました。炒ると体を冷やす作用が和らぎます。美容目的での愛飲者が多い素材です。',
+    how:'水から煮出して15分以上。しっかり煮出すほど効果が高まります。',
+    caution:'妊娠中は避けてください（子宮収縮作用の懸念）。飲みすぎは逆効果。',
+    blends:['利水・健脾ブレンド','清熱・利湿ブレンド'] },
+
+  { id:'kuromame', icon:'🖤', name:'黒豆（炒り）', read:'黒大豆（こくだいず）',
+    types:['腎虚','瘀血','痰湿'], seasons:['冬'],
+    concerns:['冷え','むくみ','美容'],
+    nature:'平', flavor:'甘', meridian:'脾・腎',
+    desc:'五行の「黒＝腎」に基づき、腎を補う代表食材。アントシアニン豊富で抗酸化・血行促進・アンチエイジングに。腎を補いながら水の巡りをよくする作用があります。',
+    how:'炒った黒豆を水から煮出して15分。炒ることで香ばしさと温め効果が加わります。',
+    caution:'特になし。妊産婦・子どもでも安全に使える素材です。',
+    blends:['活血・通絡ブレンド','利水・健脾ブレンド','温陽・補腎ブレンド'] },
+
+  { id:'keihi', icon:'🌿', name:'桂皮（シナモン）', read:'桂皮（けいひ）',
+    types:['陽虚','瘀血','気虚'], seasons:['秋','冬'],
+    concerns:['冷え','美容'],
+    nature:'熱', flavor:'辛・甘', meridian:'心・肺・膀胱・脾',
+    desc:'血行促進と体を奥から温める作用が強い素材。腎陽を補い、体の深部を温めます。みかん1個分の皮と同等のポリフェノールを含むともいわれます。',
+    how:'1g以内が目安。少量で十分な効果があります。',
+    caution:'熱性が強いため1g以内に。妊娠中・高血圧の方は医師に相談してから。',
+    blends:['温陽・補腎ブレンド','活血・通絡ブレンド'] },
+
+  { id:'maikaika', icon:'🌹', name:'マイカイ花', read:'玫瑰花（まいかいか）',
+    types:['気滞','瘀血','血虚'], seasons:['春'],
+    concerns:['ストレス','美容','冷え'],
+    nature:'温', flavor:'甘・苦', meridian:'肝・脾',
+    desc:'バラ科ハマナスのつぼみ。気の滞りを解消し血の巡りを促す作用があります。香りが効果の核心とされており、精神的なストレス・PMSの不調・美肌に伝統的に用いられてきました。',
+    how:'煮出しすぎると香りが飛びます。火を止めてから加え3分蒸らす方法が最適。',
+    caution:'妊娠中は多量摂取を避けてください。',
+    blends:['理気・舒肝ブレンド','活血・通絡ブレンド'] },
+
+  { id:'hakusage', icon:'⚪', name:'白きくらげ', read:'銀耳（ぎんじ）',
+    types:['陰虚','血虚'], seasons:['秋'],
+    concerns:['美容','眠れない','目の疲れ'],
+    nature:'平', flavor:'甘・淡', meridian:'肺・胃',
+    desc:'「植物性コラーゲン」とも呼ばれる秋の養生の代表素材。肺・胃を潤し、肌の乾燥・空咳・口の渇きをいたわります。秋の「滋陰潤肺」の中心食材です。',
+    how:'乾燥品を水で戻してから煮出します。とろみが出るまで20〜30分煮出すのがポイント。',
+    caution:'特になし。全季節使えますが特に秋に向いています。',
+    blends:['滋陰・清熱ブレンド','補血・安神ブレンド'] },
+
+  { id:'ryugan', icon:'🟤', name:'竜眼', read:'竜眼肉（りゅうがんにく）',
+    types:['血虚','気虚'], seasons:['秋','冬'],
+    concerns:['眠れない','疲れ','ストレス'],
+    nature:'温', flavor:'甘', meridian:'心・脾',
+    desc:'ライチに似た南国果実の乾燥品。心と脾を養い、血を補う作用があります。不眠・動悸・物忘れ・疲労倦怠に伝統的に用いられてきた「補血安神」の素材です。なつめとの相性が特によい。',
+    how:'なつめと一緒に水から煮出して10〜15分。甘みが強く飲みやすい。',
+    caution:'熱性があるため、ほてりやすい方・湿熱体質の方は少量に。',
+    blends:['補血・安神ブレンド','補気・温養ブレンド'] },
+
+  { id:'kinshinsai', icon:'🟡', name:'金針菜', read:'金針菜（きんしんさい）',
+    types:['血虚','気滞'], seasons:['春'],
+    concerns:['美容','ストレス','眠れない'],
+    nature:'涼', flavor:'甘', meridian:'肝・脾',
+    desc:'乾燥したユリ科の花。「女性の宝」とも呼ばれる補血素材の一つ。肝の気を調整し、血を補い、精神的な不安・不眠・抑うつをサポートするとされています。鉄分・葉酸が豊富。',
+    how:'水で戻してから煮出します。スープや炒め物にも使えます。',
+    caution:'特になし。妊婦さんにも安心して使える素材です。',
+    blends:['補血・安神ブレンド','理気・舒肝ブレンド'] },
+
+  { id:'sanza', icon:'🍎', name:'山査子', read:'山査子（さんざし）',
+    types:['瘀血','気滞','痰湿'], seasons:['秋','冬'],
+    concerns:['胃腸','美容'],
+    nature:'微温', flavor:'酸・甘', meridian:'脾・胃・肝',
+    desc:'強い酸味が消化を助ける素材。食べすぎ・特に肉食後の消化促進に効果的とされています。血の流れを活発にし、悪玉コレステロールの改善に伝統的に用いられてきました。',
+    how:'煮出して5〜10分。酸味が強いため少量から。プーアル茶との相性が良い。',
+    caution:'胃酸過多・空腹時の多量摂取は避けてください。',
+    blends:['活血・通絡ブレンド'] },
+
+  { id:'ryokutou', icon:'🟢', name:'緑豆', read:'緑豆（りょくとう）',
+    types:['湿熱'], seasons:['夏'],
+    concerns:['美容','胃腸'],
+    nature:'寒', flavor:'甘', meridian:'心・胃',
+    desc:'解毒・清熱の代表素材。夏の暑邪を冷まし、肌の炎症・ニキビ・口内炎をいたわるとされています。利尿作用もあり夏のむくみにも向きます。「解暑」の伝統的な食材です。',
+    how:'水から20〜30分煮出す。緑豆水（煮汁）を飲む。',
+    caution:'体を強く冷やす性質のため、冷え性・陽虚の方は避けてください。',
+    blends:['清熱・利湿ブレンド'] },
+
+  { id:'jasmine', icon:'🌸', name:'ジャスミン', read:'茉莉花（まつりか）',
+    types:['気滞','陰虚'], seasons:['春','夏'],
+    concerns:['ストレス','美容'],
+    nature:'温', flavor:'辛・甘', meridian:'肝・脾・胃',
+    desc:'マイカイ花と並ぶ「香り系」気滞解消素材。気の流れを整え精神的な緊張を和らげます。「マイカイ花＋ジャスミン」の組み合わせは「二花茶」と呼ばれ、気血の巡りをサポートする伝統的なブレンドです。',
+    how:'熱湯で蒸らすだけでOK（煮出し不要）。マイカイ花との組み合わせが定番。',
+    caution:'特になし。香りが強いため量はほどほどに。',
+    blends:['理気・舒肝ブレンド'] },
+
+  { id:'hakubakumondo', icon:'💙', name:'麦門冬', read:'麦門冬（ばくもんどう）',
+    types:['陰虚','血虚'], seasons:['秋'],
+    concerns:['美容','目の疲れ','眠れない'],
+    nature:'微寒', flavor:'甘・微苦', meridian:'肺・心・胃',
+    desc:'肺・心・胃を潤す代表的な「補陰」素材。乾燥した咳・口の渇き・肌の乾燥・不眠に伝統的に用いられてきました。秋の「滋陰潤肺」に欠かせない素材の一つです。',
+    how:'漢方薬局・Amazon等で購入可。水から10分煮出す。クコとの相性が良い。',
+    caution:'下痢気味・消化器が弱い方は少量から。',
+    blends:['滋陰・清熱ブレンド'] },
+
+  { id:'yurine', icon:'⚪', name:'ゆり根', read:'百合（びゃくごう）',
+    types:['陰虚','血虚','気虚'], seasons:['秋'],
+    concerns:['眠れない','ストレス'],
+    nature:'微寒', flavor:'甘・微苦', meridian:'心・肺',
+    desc:'「心を潤す」素材として古来より不眠・動悸・不安感に用いられてきました。「百合病（不安神経症）」の代表的な食薬です。肺も潤すため、秋の乾燥対策にも有効とされています。',
+    how:'水から煮出して10分。なつめとの組み合わせが不眠への定番ブレンド。',
+    caution:'風邪気味のときや下痢のときは避けて。',
+    blends:['補血・安神ブレンド'] },
+
+  { id:'dokudami', icon:'🌿', name:'どくだみ', read:'魚腥草（ぎょせいそう）',
+    types:['湿熱'], seasons:['夏','長夏'],
+    concerns:['美容','むくみ'],
+    nature:'微寒', flavor:'辛', meridian:'肺・大腸・膀胱',
+    desc:'日本の伝統的な和ハーブ。利尿・解毒・抗炎症作用がよく知られています。体の余分な熱を冷まし、ニキビ・吹き出物・むくみに伝統的に用いられてきた「十薬」とも呼ばれる素材です。',
+    how:'乾燥品を水から煮出して10〜15分。独特の香りが気になる場合は短時間に。',
+    caution:'体を冷やす性質のため冷え性の方は避けてください。妊娠中は控えめに。',
+    blends:['清熱・利湿ブレンド'] },
+
+  { id:'kuwanomi', icon:'🫐', name:'桑の実', read:'桑椹（そうじん）',
+    types:['血虚','陰虚'], seasons:['春','夏'],
+    concerns:['美容','目の疲れ','眠れない'],
+    nature:'寒', flavor:'甘・酸', meridian:'肝・腎・肺',
+    desc:'桑の果実の乾燥品。肝・腎・肺の陰を補う素材で、白髪・眼精疲労・眩暈・腸燥便秘に伝統的に用いられてきました。豊富なアントシアニンは抗酸化・美容に寄与するとされています。',
+    how:'水から煮出して10分。甘酸っぱくそのまま食べても美味しい。',
+    caution:'体を冷やす性質のため冷え性の方は控えめに。脾虚（消化が弱い）の方は少量から。',
+    blends:['補血・安神ブレンド','滋陰・清熱ブレンド'] },
+
+  { id:'hasunoomi', icon:'🌸', name:'ハスの実', read:'蓮子（れんし）',
+    types:['気虚','血虚','湿熱'], seasons:['夏','秋'],
+    concerns:['眠れない','ストレス','胃腸'],
+    nature:'平', flavor:'甘・渋', meridian:'脾・腎・心',
+    desc:'心を落ち着かせ、不眠・動悸・不安感をいたわる素材。脾胃を補い、下痢・遺精にも伝統的に用いられてきました。マイカイ花との組み合わせで心と気の両方にアプローチできます。',
+    how:'水から煮出して15〜20分。やや時間がかかりますが、甘みが出て飲みやすくなります。',
+    caution:'便秘気味の方は控えめに（収斂作用あり）。',
+    blends:['補血・安神ブレンド','活血・通絡ブレンド'] },
+];
+
+// ══════════════════════════════════════════════
+// ★ アフィリエイト設定（ここだけ変更すればOK）
+// ══════════════════════════════════════════════
+const AMAZON_TAG = 'YOUR-AMAZON-TAG';    // ← あなたのAmazonアソシエイトIDに変更
+const RAKUTEN_TAG = 'YOUR-RAKUTEN-TAG';  // ← あなたの楽天アフィリエイトIDに変更
+
+// 各素材のAmazon・楽天検索キーワード
+const ingredientSearchWords = {
+  natume:'なつめ 薬膳', kuko:'クコの実 薬膳', kikuka:'菊花 薬膳茶',
+  shoga:'乾燥生姜 薬膳', chenpi:'陳皮 薬膳', hatomugi:'ハトムギ 薏苡仁',
+  kuromame:'黒豆 炒り', keihi:'桂皮 シナモン 薬膳', maikaika:'マイカイ花 玫瑰花',
+  hakusage:'白きくらげ 乾燥', ryugan:'竜眼 龍眼肉', kinshinsai:'金針菜 乾燥',
+  sanza:'山査子 乾燥', ryokutou:'緑豆 薬膳', jasmine:'ジャスミン 茉莉花 茶',
+  hakubakumondo:'麦門冬 漢方', yurine:'百合根 乾燥', dokudami:'どくだみ 乾燥',
+  kuwanomi:'桑の実 乾燥', hasunoomi:'ハスの実 蓮子',
+};
+
+function amazonUrl(id){
+  const kw = encodeURIComponent(ingredientSearchWords[id] || '薬膳茶');
+  return `https://www.amazon.co.jp/s?k=${kw}&tag=${AMAZON_TAG}`;
+}
+
+function rakutenUrl(id){
+  const kw = encodeURIComponent(ingredientSearchWords[id] || '薬膳茶');
+  return `https://search.rakuten.co.jp/search/mall/${kw}/?aid=${RAKUTEN_TAG}`;
+}
+
+function affilLinks(id){
+  return `<div class="affil-links" onclick="event.stopPropagation()">
+    <a class="affil-btn affil-amazon" href="${amazonUrl(id)}" target="_blank" rel="noopener sponsored">🛒 Amazon</a>
+    <a class="affil-btn affil-rakuten" href="${rakutenUrl(id)}" target="_blank" rel="noopener sponsored">🛒 楽天</a>
+  </div>`;
+}
+
+// ══════════════════════════════════════════════
+// ⑪ 食材辞典 JavaScript（複数選択・ブレンド生成）
+// ══════════════════════════════════════════════
+
+// 五性のカテゴリ分類（温寒チェック用）
+const natureCategory = {
+  '熱':'hot', '温':'warm', '平':'neutral', '微寒':'cool', '寒':'cold', '涼':'cool', '微温':'warm'
+};
+const natureLabelClass = {
+  hot:'nature-hot', warm:'nature-warm', neutral:'nature-neutral', cool:'nature-cool', cold:'nature-cold'
+};
+
+// 各素材のデフォルトグラム数
+const defaultGrams = {
+  natume:'3粒', kuko:'5g', kikuka:'3g', shoga:'3枚',
+  chenpi:'2g', hatomugi:'8g', kuromame:'8g', keihi:'0.5g',
+  maikaika:'2g', hakusage:'3g（乾燥・戻し後）', ryugan:'3g',
+  kinshinsai:'3g', sanza:'2g', ryokutou:'5g', jasmine:'2g',
+  hakubakumondo:'3g', yurine:'3g', dokudami:'2g', kuwanomi:'3g', hasunoomi:'3g',
+};
+
+// 悩みラベル
+const concernLabels = {
+  '疲れ':'疲れやすい', '冷え':'冷え性', '眠れない':'眠れない',
+  '美容':'美容・肌荒れ', 'むくみ':'むくみ', 'ストレス':'ストレス',
+  '胃腸':'胃腸の不調', '目の疲れ':'目の疲れ',
+};
+
+let selectedIngredients = new Set();
+
+function initZukan(){
+  const grid = document.getElementById('zukanGrid');
+  grid.innerHTML = ingredients.map(ing => {
+    const natCat = natureCategory[ing.nature] || 'neutral';
+    const typeTags = ing.types.slice(0,2).map(t=>`<span class="zukan-tag tag-type">${t}</span>`).join('');
+    const seasonTags = ing.seasons.slice(0,2).map(s=>`<span class="zukan-tag tag-season">${s}</span>`).join('');
+    return `
+      <div class="zukan-card" id="zc-${ing.id}"
+           data-types="${ing.types.join(',')}"
+           data-seasons="${ing.seasons.join(',')}"
+           data-concerns="${ing.concerns.join(',')}"
+           onclick="toggleIngredient('${ing.id}')">
+        <div class="zukan-check" id="chk-${ing.id}"></div>
+        <div class="zukan-icon">${ing.icon}</div>
+        <div class="zukan-name">${ing.name}</div>
+        <div class="zukan-read">${ing.read}</div>
+        <div class="zukan-nature-badge ${natureLabelClass[natCat]}">${ing.nature}</div>
+        <div class="zukan-tags">${typeTags}${seasonTags}</div>
+        ${affilLinks(ing.id)}
+      </div>`;
+  }).join('');
+}
+
+function toggleIngredient(id){
+  if(selectedIngredients.has(id)){
+    selectedIngredients.delete(id);
+    document.getElementById('zc-'+id).classList.remove('selected');
+    document.getElementById('chk-'+id).textContent = '';
+  } else {
+    if(selectedIngredients.size >= 6){
+      alert('一度に選べる素材は6種類までです。');
+      return;
+    }
+    selectedIngredients.add(id);
+    document.getElementById('zc-'+id).classList.add('selected');
+    document.getElementById('chk-'+id).textContent = '✓';
+  }
+  updateSelectBar();
+}
+
+function updateSelectBar(){
+  const count = selectedIngredients.size;
+  document.getElementById('selectedCount').textContent = count;
+  const names = [...selectedIngredients].map(id => {
+    const ing = ingredients.find(i=>i.id===id);
+    return ing ? ing.name : '';
+  }).join('・');
+  document.getElementById('selectedNames').textContent = count > 0 ? `（${names}）` : '';
+  document.getElementById('btnBlend').disabled = count < 2;
+  if(count < 2){
+    document.getElementById('blendResult').classList.remove('open');
+  }
+}
+
+function clearSelection(){
+  selectedIngredients.forEach(id => {
+    document.getElementById('zc-'+id)?.classList.remove('selected');
+    const chk = document.getElementById('chk-'+id);
+    if(chk) chk.textContent = '';
+  });
+  selectedIngredients.clear();
+  updateSelectBar();
+  document.getElementById('blendResult').classList.remove('open');
+}
+
+function filterZukan(key, btn){
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.zukan-card').forEach(card=>{
+    if(key === 'all'){ card.classList.remove('hidden'); return; }
+    const [fType, fVal] = key.split(':');
+    let match = false;
+    if(fType === 'type') match = card.dataset.types.includes(fVal);
+    if(fType === 'season') match = card.dataset.seasons.includes(fVal);
+    card.classList.toggle('hidden', !match);
+  });
+}
+
+// ══ ブレンド効能生成ロジック ══
+function generateBlend(){
+  const selected = [...selectedIngredients].map(id => ingredients.find(i=>i.id===id)).filter(Boolean);
+  if(selected.length < 2) return;
+
+  // 1. タグ集計
+  const typeCounts = {}, concernCounts = {}, seasonCounts = {};
+  selected.forEach(ing => {
+    ing.types.forEach(t => typeCounts[t] = (typeCounts[t]||0) + 1);
+    ing.concerns.forEach(c => concernCounts[c] = (concernCounts[c]||0) + 1);
+    ing.seasons.forEach(s => seasonCounts[s] = (seasonCounts[s]||0) + 1);
+  });
+
+  const sortedTypes = Object.entries(typeCounts).sort((a,b)=>b[1]-a[1]);
+  const sortedConcerns = Object.entries(concernCounts).sort((a,b)=>b[1]-a[1]);
+  const sortedSeasons = Object.entries(seasonCounts).sort((a,b)=>b[1]-a[1]);
+  const topType = sortedTypes[0]?.[0] || '';
+  const topConcern = sortedConcerns[0]?.[0] || '';
+
+  // 2. 温寒バランスチェック
+  const natCats = selected.map(ing => natureCategory[ing.nature] || 'neutral');
+  const hasHot = natCats.some(n => n === 'hot' || n === 'warm');
+  const hasCold = natCats.some(n => n === 'cold' || n === 'cool');
+  const hotItems = selected.filter(ing => ['hot','warm'].includes(natureCategory[ing.nature])).map(i=>i.name);
+  const coldItems = selected.filter(ing => ['cold','cool'].includes(natureCategory[ing.nature])).map(i=>i.name);
+  const hasConflict = hasHot && hasCold && hotItems.length > 0 && coldItems.length > 0;
+
+  // 3. タイトル生成
+  const concernLabel = concernLabels[topConcern] || topConcern;
+  const brTitle = `${selected.map(i=>i.name).join('・')} ブレンド`;
+  const brSub = `主な効能：${topType}向き・${concernLabel}をサポート`;
+
+  // 4. 効能説明文生成
+  const effDesc = buildEffDesc(selected, sortedTypes, sortedConcerns, sortedSeasons);
+
+  // 5. グラム数算出（主素材多め・補助素材少なめ）
+  const gramsMap = calcGrams(selected);
+
+  // 6. 作り方生成
+  const steps = buildSteps(selected);
+
+  // 7. 画面描画
+  renderBlendResult({
+    title: brTitle, sub: brSub,
+    hasConflict, hotItems, coldItems,
+    sortedTypes, sortedConcerns, sortedSeasons,
+    effDesc, selected, gramsMap, steps,
+  });
+}
+
+function buildEffDesc(selected, types, concerns, seasons){
+  const topType = types[0]?.[0] || '';
+  const topConcern = concerns[0]?.[0] || '';
+  const topSeason = seasons[0]?.[0] || '';
+  const typeDesc = {
+    '気虚':'気を補いエネルギーを充電する',
+    '陽虚':'体を温め陽気を補う',
+    '血虚':'血を養い栄養を届ける',
+    '陰虚':'潤いを補い余分な熱をおさめる',
+    '気滞':'気の流れをほぐしリラックスを促す',
+    '瘀血':'血の巡りを促しめぐりをよくする',
+    '湿熱':'余分な熱と湿を排出する',
+    '痰湿':'余分な水分を排出し体を軽くする',
+  };
+  const concernDesc = {
+    '疲れ':'慢性的な疲れやだるさをサポートする',
+    '冷え':'体を内側から温める',
+    '眠れない':'心を落ち着かせ眠りをサポートする',
+    '美容':'肌の潤いと血色をサポートする',
+    'むくみ':'水分代謝をサポートむくみをいたわる',
+    'ストレス':'気の滞りをほぐし気持ちを整える',
+    '胃腸':'消化機能をサポートし胃腸を整える',
+    '目の疲れ':'肝と目に栄養を届けいたわる',
+  };
+  const lines = [];
+  if(typeDesc[topType]) lines.push(`中医学の観点では「${typeDesc[topType]}」ブレンドです。`);
+  if(concernDesc[topConcern]) lines.push(`特に「${concernLabels[topConcern]||topConcern}」でお悩みの方に向いています。`);
+  if(topSeason) lines.push(`${topSeason}の養生として取り入れるのに適しています。`);
+  lines.push(`選んだ${selected.length}種類の素材の働きが互いを補い合い、継続することで体質から整えるとされています。`);
+  return lines.join(' ');
+}
+
+function calcGrams(selected){
+  // 五性で主役を判定（最も温性 or 最も目的に合うもの）
+  const map = {};
+  selected.forEach((ing, i) => {
+    const base = defaultGrams[ing.id] || '3g';
+    map[ing.id] = base;
+  });
+  return map;
+}
+
+function buildSteps(selected){
+  // 五性で煮出し順を決める
+  const warmIngr = selected.filter(i => ['hot','warm'].includes(natureCategory[i.nature])).map(i=>i.name);
+  const neutralIngr = selected.filter(i => natureCategory[i.nature] === 'neutral').map(i=>i.name);
+  const coolIngr = selected.filter(i => ['cool','cold'].includes(natureCategory[i.nature])).map(i=>i.name);
+  // 花・香り系は最後に
+  const flowerIngr = selected.filter(i => ['maikaika','kikuka','jasmine'].includes(i.id)).map(i=>i.name);
+  const baseIngr = selected.filter(i => !['maikaika','kikuka','jasmine'].includes(i.id)).map(i=>i.name);
+
+  const steps = [];
+  if(baseIngr.length > 0){
+    steps.push(`${baseIngr.join('・')}を水500mlから中火にかける`);
+    steps.push('沸騰後、弱火で10〜15分煮出す');
+  }
+  if(flowerIngr.length > 0){
+    steps.push(`火を止めて${flowerIngr.join('・')}を加え、3分蒸らす（香りを逃がさないために）`);
+  } else {
+    steps.push('火を止めてこす');
+  }
+  steps.push('温かいうちにゆっくり飲む。1日1〜2杯を目安に継続することで効果が実感しやすくなります');
+  return steps;
+}
+
+function renderBlendResult({title, sub, hasConflict, hotItems, coldItems, sortedTypes, sortedConcerns, sortedSeasons, effDesc, selected, gramsMap, steps}){
+  const result = document.getElementById('blendResult');
+  document.getElementById('brTitle').textContent = title;
+  document.getElementById('brSub').textContent = sub;
+
+  // 警告
+  const warnEl = document.getElementById('brWarning');
+  if(hasConflict){
+    warnEl.innerHTML = `<div class="br-warning">
+      <strong>⚠ 温寒バランスに注意</strong>
+      温める性質（${hotItems.join('・')}）と冷やす性質（${coldItems.join('・')}）の素材が混在しています。
+      効能が打ち消し合う可能性があります。目的を絞って素材を選び直すか、温める・冷ますどちらかに統一することをおすすめします。
+    </div>`;
+  } else {
+    warnEl.innerHTML = '';
+  }
+
+  // 効能タグ
+  const topTypes = sortedTypes.slice(0,3);
+  const topConcerns = sortedConcerns.slice(0,3);
+  document.getElementById('brEffTags').innerHTML =
+    topTypes.map(([t,c],i)=>`<div class="br-eff-tag ${i===0?'primary':'secondary'}">${t}向き</div>`).join('') +
+    topConcerns.map(([c,cnt])=>`<div class="br-eff-tag secondary">${concernLabels[c]||c}</div>`).join('');
+
+  document.getElementById('brEffDesc').textContent = effDesc;
+
+  // 適性グリッド
+  const topSeason = sortedSeasons[0]?.[0] || '通年';
+  const topType2 = sortedTypes[0]?.[0] || '';
+  document.getElementById('brFitness').innerHTML = `
+    <div class="br-fit-item"><div class="br-fit-label">向く体質</div><div class="br-fit-val">${sortedTypes.slice(0,2).map(([t])=>t).join('・')}</div></div>
+    <div class="br-fit-item"><div class="br-fit-label">向く季節</div><div class="br-fit-val">${sortedSeasons.slice(0,2).map(([s])=>s).join('・') || '通年'}</div></div>
+    <div class="br-fit-item"><div class="br-fit-label">主なお悩み</div><div class="br-fit-val">${sortedConcerns.slice(0,2).map(([c])=>concernLabels[c]||c).join('・')}</div></div>
+  `;
+
+  // 素材リスト
+  document.getElementById('brIngrList').innerHTML = selected.map(ing => {
+    const natCat = natureCategory[ing.nature] || 'neutral';
+    return `<div class="br-ingr-item" style="flex-wrap:wrap;">
+      <span class="br-ingr-icon">${ing.icon}</span>
+      <span class="br-ingr-name">${ing.name}</span>
+      <span class="br-ingr-eff">${ing.desc.split('。')[0]}。</span>
+      <span class="br-ingr-g">${gramsMap[ing.id]}</span>
+      <span class="br-ingr-nature ${natureLabelClass[natCat]}">${ing.nature}</span>
+      <div style="width:100%;padding-left:23px;">${affilLinks(ing.id)}</div>
+    </div>`;
+  }).join('');
+
+  // 作り方
+  document.getElementById('brSteps').innerHTML = steps.map((s,i)=>`
+    <div class="br-step"><span class="br-step-num">${i+1}</span><span>${s}</span></div>`).join('');
+
+  // 注意
+  const cautionTexts = [...new Set(selected.map(i=>i.caution).filter(Boolean))];
+  document.getElementById('brCaution').innerHTML = `
+    <div class="br-caution">
+      ${cautionTexts.map(t=>`・${t}`).join('<br>')}
+      <br>・効果には個人差があります。本ブレンドは食品・食養生の情報であり、疾患の治療を目的とするものではありません。
+    </div>
+    <div class="br-medical"><strong>⚕ こんな場合は医療機関へ</strong>症状が2週間以上続く場合や、日常生活に支障が出る場合は医療機関を受診してください。</div>
+  `;
+
+  result.classList.add('open');
+  result.scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+// ══════════════════════════════════════════════
+// ⑫ 初期化
+// ══════════════════════════════════════════════
+document.addEventListener('DOMContentLoaded', ()=>{
+  resetFullQuiz();
+  initZukan();
+});</script>
+</body>
+</html>
